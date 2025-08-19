@@ -1,6 +1,6 @@
 
 import React from "react";
-import "./planes.css";
+import "./Planes.css";
 
 // Icons
 import {
