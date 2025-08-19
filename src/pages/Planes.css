@@ -1,0 +1,111 @@
+.planes {
+  padding: 48px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #eaeaea;
+}
+.planes__title {
+  font-size: 30px;
+  font-weight: 400;
+  margin: 0 0 12px 0;
+  color: #fff;
+  background: linear-gradient(135deg, #1c023d, #1c1820);
+  padding: 12px 16px;
+  border-radius: 0px;
+  border: 1;
+}
+
+/* Generic card row */
+.cards-row {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* First row → 2 columns */
+.cards-row.two-cols {
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 800px) {
+  .cards-row.two-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Second row → 3 columns */
+.cards-row.three-cols {
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 1000px) {
+  .cards-row.three-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card styles */
+.plan-card {
+  background: #0d0019;
+  border: 1px solid #2a2a2a;
+  border-radius: 5px;
+  padding: 20px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.plan-card__title {
+  font-size: 22px;
+  margin: 0 0 12px 0;
+}
+.plan-card__prices {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+}
+.plan-card__prices li {
+  margin: 4px 0;
+}
+.plan-card__desc {
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.plan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  border-color: #9a9b9b;
+}
+
+
+
+/* icons */
+.icon {
+  vertical-align: middle;
+  margin-right: 8px;
+  opacity: 0.9;
+}
+.icon.sm { font-size: 20px !important; margin-right: 8px; }
+.icon-accent { color: #ffffff; }     /* teal accent */
+.icon-success { color: #353735; }    /* green for checks */
+
+/* section header inside a card */
+.plan-card__section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 6px;
+  font-weight: 600;
+  letter-spacing: .3px;
+}
+.plan-card__section-title { opacity: .95; }
+
+/* lists with icons: align nicely */
+.with-icons {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+}
+.with-icons li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 6px 0;
+}
+.with-icons li > span { line-height: 1.45; }
