@@ -25,6 +25,8 @@ import Planes from "./pages/Planes.jsx";
 import Blog from "./pages/Blog.jsx";
 import Contacto from "./pages/Contacto.jsx";
 
+import PorqueFamilias from "./pages/PorqueFamilias.jsx";
+
 function NavLinkBtn({ to, children }) {
   return (
     <Button
@@ -132,20 +134,6 @@ function Header() {
         >
           <NavLinkBtn to="/acerca">Acerca de</NavLinkBtn>
           {/* <NavLinkBtn to="/programa-stem-care">Programa Stem Care</NavLinkBtn> */}
-          <Button
-            onClick={handleOpen}
-            sx={{
-              fontFamily: "Manrope, sans-serif",
-              color: "#e9eef8",
-              textTransform: "none",
-              fontWeight: 600,
-              letterSpacing: 0.2,
-              opacity: 0.92,
-              "&:hover": { opacity: 1 },
-            }}
-          >
-            Programa Stem Care
-          </Button>
 
 
           <Button
@@ -186,7 +174,7 @@ function Header() {
               ¿Por qué almacenar sangre del cordon de mi bebé?
             </MenuItem>
 
-            <MenuItem component={Link} to="/programa-stem-care/videos" onClick={handleClose} sx={ITEM_SX}>
+            <MenuItem component={Link} to="/programa-stem-care/por-que-las-familias-eligen-stem-care" onClick={handleClose} sx={ITEM_SX}>
               ¿Por qué las familias eligen Stem Care?
             </MenuItem>
 
@@ -344,6 +332,8 @@ export default function App() {
         <Route path="/planes" element={<Planes />} />
         <Route path="/yoamoamibebe-blog" element={<Blog />} />
         <Route path="/contacto" element={<Contacto />} />
+        <Route path="/programa-stem-care/por-que-las-familias-eligen-stem-care" element={<PorqueFamilias />} />
+
         <Route path="*" element={<div style={{ padding: 24, color: "#fff" }}>404</div>} />
       </Routes>
     </BrowserRouter>
