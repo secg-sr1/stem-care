@@ -300,7 +300,8 @@ function Header() {
           <Divider sx={{ borderColor: "rgba(255,255,255,0.12)" }} />
           <List>
             <ListItemButton onClick={() => go("/acerca")}><ListItemText primary="Acerca de" /></ListItemButton>
-            <ListItemButton onClick={() => go("/programa-stem-care")}><ListItemText primary="Programa Stem Care" /></ListItemButton>
+            <ListItemButton onClick={() => go("/programa-stem-care")}><ListItemText primary="¿Por qué almacenar sangre del cordon de mi bebé?" /></ListItemButton>
+            <ListItemButton onClick={() => go("/por-que-las-familias-eligen-stem-care")}><ListItemText primary="¿Por qué las familias eligen Stem Care?" /></ListItemButton>
             <ListItemButton onClick={() => go("/planes")}><ListItemText primary="Planes" /></ListItemButton>
             <ListItemButton onClick={() => go("/yoamoamibebe-blog")}><ListItemText primary="yoamoamibebe blog" /></ListItemButton>
             <Divider sx={{ my: 1, borderColor: "rgba(255,255,255,0.12)" }} />
