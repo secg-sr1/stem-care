@@ -1,157 +1,21 @@
-// import * as React from "react";
-// import {
-//   AppBar, Box, Button, Stack, Toolbar, Typography
-// } from "@mui/material";
-// import {
-//   BrowserRouter, Routes, Route, Link, useLocation
-// } from "react-router-dom";
-
-// // pages
-// import Home from "./pages/Home.jsx";
-// import Acerca from "./pages/Acerca.jsx";
-// import Programa from "./pages/Programa.jsx";
-// import Planes from "./pages/Planes.jsx";
-// import Blog from "./pages/Blog.jsx";
-// import Contacto from "./pages/Contacto.jsx";
-
-// function NavLinkBtn({ to, children }) {
-//   return (
-//     <Button
-//       component={Link}
-//       to={to}
-//       sx={{
-//         color: "#e9eef8",
-//         textTransform: "none",
-//         fontWeight: 600,
-//         letterSpacing: 0.2,
-//         opacity: 0.92,
-//         "&:hover": { opacity: 1 },
-//       }}
-//     >
-//       {children}
-//     </Button>
-//   );
-// }
-
-// function Header() {
-//   return (
-//     <AppBar
-//       position="fixed"
-//       elevation={0}
-//       color="transparent"
-//       sx={{
-//         bgcolor: "transparent !important",
-//         boxShadow: "none",
-//         // remove blur if you want 100% clear
-//         // backdropFilter: "saturate(160%) blur(6px)",
-//         px: { xs: 2, md: 4 },
-//       }}
-//     >
-//       <Toolbar disableGutters sx={{ minHeight: { xs: 72, md: 82 } }}>
-//         <Typography
-//           component={Link}
-//           to="/"
-//           sx={{
-//             fontFamily: "Hargloves",
-//             fontWeight: 500,
-//             fontSize: { xs: 28, md: 34 },
-//             letterSpacing: 0.4,
-//             color: "#fff",
-//             textDecoration: "none",
-//             mr: 2,
-//             textShadow: "none",
-//           }}
-//         >
-//           Stem Care
-//         </Typography>
-
-//         <Stack
-//           direction="row"
-//           spacing={3}
-//           sx={{
-//             mx: 'auto',
-//             display: { xs: 'none', md: 'flex' },
-//             '& .MuiButton-root': {              // ⬅️ all buttons inside use Manrope
-//               fontFamily: 'Manrope, sans-serif',
-//               textTransform: 'none',
-//               fontWeight: 300,
-//               letterSpacing: 0.2,
-//               color: '#e9eef8',
-//               opacity: 0.92,
-//               '&:hover': { opacity: 1 },
-//             },
-//           }}
-//         >
-//           <NavLinkBtn to="/acerca">Acerca de</NavLinkBtn>
-//           <NavLinkBtn to="/programa-stem-care">Programa Stem Care</NavLinkBtn>
-//           <NavLinkBtn to="/planes">Planes</NavLinkBtn>
-//           <NavLinkBtn to="/yoamoamibebe-blog">yoamoamibebe blog</NavLinkBtn>
-//         </Stack>
-
-
-//         <Button
-//           component={Link}
-//           to="/contacto"
-//           variant="outlined"
-//           size="large"
-//           sx={{
-//             color: "#fff",
-//             borderColor: "rgba(255, 255, 255, 0.6)",
-//             borderRadius: 999,
-//             px: 2.2,
-//             py: 0.6,
-//             textTransform: "none",
-//             fontWeight: 600,
-//             textShadow: "none",
-//             "&:hover": {
-//               borderColor: "#fff",
-//               backgroundColor: "rgba(255,255,255,0.06)",
-//             },
-//           }}
-//         >
-//           contacto
-//         </Button>
-//       </Toolbar>
-//     </AppBar>
-//   );
-// }
-
-// // spacer only when NOT on home, so the hero image sits behind the AppBar
-// function SpacerUnlessHome() {
-//   const { pathname } = useLocation();
-//   if (pathname === "/") return null;
-//   return <Box sx={{ height: { xs: 72, md: 82 } }} />;
-// }
-
-// export default function App() {
-//   return (
-//     <BrowserRouter>
-//       <Header />
-//       <SpacerUnlessHome />
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-//         <Route path="/acerca" element={<Acerca />} />
-//         <Route path="/programa-stem-care" element={<Programa />} />
-//         <Route path="/planes" element={<Planes />} />
-//         <Route path="/yoamoamibebe-blog" element={<Blog />} />
-//         <Route path="/contacto" element={<Contacto />} />
-//         <Route path="*" element={<div style={{ padding: 24, color: "#fff" }}>404</div>} />
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// }
-
-
 import * as React from "react";
 import {
   AppBar, Box, Button, Stack, Toolbar, Typography,
-  IconButton, Drawer, List, ListItemButton, ListItemText, Divider
+  IconButton, Drawer, List, ListItemButton, ListItemText, Divider, Menu, MenuItem, Collapse, ListItemIcon
 } from "@mui/material";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import {
   BrowserRouter, Routes, Route, Link, useLocation, useNavigate
 } from "react-router-dom";
+
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import MedicalServicesRounded from "@mui/icons-material/MedicalServicesRounded";
+import BiotechRounded from "@mui/icons-material/BiotechRounded";
+import ScienceRounded from "@mui/icons-material/ScienceRounded";
+
+
 
 // pages
 import Home from "./pages/Home.jsx";
@@ -183,6 +47,47 @@ function NavLinkBtn({ to, children }) {
 
 function Header() {
   const [open, setOpen] = React.useState(false);
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const openMenu = Boolean(anchorEl);
+
+  const [servicesOpen, setServicesOpen] = React.useState(false);
+
+  const handleOpen = (e) => setAnchorEl(e.currentTarget);
+  const handleClose = () => {
+    setAnchorEl(null);
+    setServicesOpen(false);
+  };
+
+  const MENU_PAPER_SX = {
+    mt: 1,
+    borderRadius: 2,
+    bgcolor: "rgba(10,15,25,0.92)",
+    backdropFilter: "blur(8px)",
+    color: "#fff",
+    border: "1px solid rgba(255,255,255,0.12)",
+    boxShadow: "0 24px 60px rgba(0,0,0,.55)",
+    overflow: "hidden",
+  };
+
+  const ITEM_SX = {
+    px: 2,
+    py: 1.15,
+    fontFamily: "Manrope, sans-serif",
+    fontWeight: 600,
+    letterSpacing: 0.2,
+    "&:hover": { bgcolor: "rgba(255,255,255,0.06)" },
+  };
+
+  const SUBITEM_SX = {
+    pl: 5, pr: 2, py: 1,
+    "&:hover": { bgcolor: "rgba(255,255,255,0.06)" },
+  };
+
+
+
+
+
   const navigate = useNavigate();
   const go = (path) => { setOpen(false); navigate(path); };
 
@@ -226,8 +131,135 @@ function Header() {
           }}
         >
           <NavLinkBtn to="/acerca">Acerca de</NavLinkBtn>
-          <NavLinkBtn to="/programa-stem-care">Programa Stem Care</NavLinkBtn>
-          <NavLinkBtn to="/planes">Planes</NavLinkBtn>
+          {/* <NavLinkBtn to="/programa-stem-care">Programa Stem Care</NavLinkBtn> */}
+          <Button
+            onClick={handleOpen}
+            sx={{
+              fontFamily: "Manrope, sans-serif",
+              color: "#e9eef8",
+              textTransform: "none",
+              fontWeight: 600,
+              letterSpacing: 0.2,
+              opacity: 0.92,
+              "&:hover": { opacity: 1 },
+            }}
+          >
+            Programa Stem Care
+          </Button>
+
+
+          <Button
+            onClick={handleOpen}
+            aria-haspopup="true"
+            aria-controls={openMenu ? "menu-programa" : undefined}
+            aria-expanded={openMenu ? "true" : undefined}
+            endIcon={
+              <KeyboardArrowDown
+                sx={{ transition: "transform .2s", transform: openMenu ? "rotate(180deg)" : "none" }}
+              />
+            }
+            sx={{
+              fontFamily: "Manrope, sans-serif",
+              color: "#e9eef8",
+              textTransform: "none",
+              fontWeight: 600,
+              letterSpacing: 0.2,
+              opacity: 0.92,
+              "&:hover": { opacity: 1 },
+            }}
+          >
+            Programa Stem Care
+          </Button>
+
+          {/* MAIN MENU */}
+          <Menu
+            anchorEl={anchorEl}
+            open={openMenu}
+            onClose={handleClose}
+            keepMounted
+            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+            transformOrigin={{ vertical: "top", horizontal: "left" }}
+            PaperProps={{ sx: MENU_PAPER_SX }}
+            MenuListProps={{ dense: true }}
+          >
+            <MenuItem component={Link} to="/programa-stem-care" onClick={handleClose} sx={ITEM_SX}>
+              ¿Por qué almacenar sangre del cordon de mi bebé?
+            </MenuItem>
+
+            <MenuItem component={Link} to="/programa-stem-care/videos" onClick={handleClose} sx={ITEM_SX}>
+              ¿Por qué las familias eligen Stem Care?
+            </MenuItem>
+
+            <MenuItem component={Link} to="/programa-stem-care/pasos" onClick={handleClose} sx={ITEM_SX}>
+              Pasos para contratar
+            </MenuItem>
+
+            <MenuItem component={Link} to="/planes" onClick={handleClose} sx={ITEM_SX}>
+              Planes de pago
+            </MenuItem>
+
+            <Divider sx={{ my: 0.5, borderColor: "rgba(255,255,255,0.08)" }} />
+
+            {/* Servicios inline toggle */}
+            <MenuItem
+              onClick={() => setServicesOpen((v) => !v)}
+              sx={{ ...ITEM_SX, pr: 1.25 }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1, width: 1 }}>
+                <Box sx={{ flexGrow: 1 }}>Servicios</Box>
+                <KeyboardArrowRight
+                  fontSize="small"
+                  sx={{ transition: "transform .2s", transform: servicesOpen ? "rotate(90deg)" : "none" }}
+                />
+              </Box>
+            </MenuItem>
+
+            {/* Submenu content INSIDE the same Paper */}
+            <Collapse in={servicesOpen} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding sx={{ py: 0.25 }}>
+                <ListItemButton
+                  component={Link}
+                  to="/programa-stem-care#transplantes"
+                  onClick={handleClose}
+                  sx={SUBITEM_SX}
+                >
+                  <ListItemIcon sx={{ minWidth: 28 }}>
+                    <MedicalServicesRounded sx={{ fontSize: 18, opacity: 0.9, color: "#d2d2d2" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Transplantes de células madre" />
+                </ListItemButton>
+
+                <ListItemButton
+                  component={Link}
+                  to="/programa-stem-care#pulpa"
+                  onClick={handleClose}
+                  sx={SUBITEM_SX}
+                >
+                  <ListItemIcon sx={{ minWidth: 28 }}>
+                    <BiotechRounded sx={{ fontSize: 18, opacity: 0.9, color: "#d2d2d2" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Pulpa de Diente de Leche" />
+                </ListItemButton>
+
+                <ListItemButton
+                  component={Link}
+                  to="/programa-stem-care#veritas"
+                  onClick={handleClose}
+                  sx={SUBITEM_SX}
+                >
+                  <ListItemIcon sx={{ minWidth: 28 }}>
+                    <ScienceRounded sx={{ fontSize: 18, opacity: 0.9, color: "#d2d2d2" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Pruebas Genéticas Veritas Int." />
+                </ListItemButton>
+              </List>
+            </Collapse>
+          </Menu>
+
+
+
+          
+          <NavLinkBtn to="/planes">Planes de Pago</NavLinkBtn>
           <NavLinkBtn to="/yoamoamibebe-blog">yoamoamibebe blog</NavLinkBtn>
         </Stack>
 
