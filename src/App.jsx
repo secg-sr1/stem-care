@@ -58,6 +58,8 @@ function Header() {
   const openMenu = Boolean(anchorEl);
 
   const [servicesOpen, setServicesOpen] = React.useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = React.useState(false);
+
 
   const handleOpen = (e) => setAnchorEl(e.currentTarget);
   const handleClose = () => {
@@ -308,6 +310,48 @@ function Header() {
             <ListItemButton onClick={() => go("/programa-stem-care/por-que-las-familias-eligen-stem-care")}><ListItemText primary="¿Por qué las familias eligen Stem Care?" /></ListItemButton>
             <ListItemButton onClick={() => go("/planes")}><ListItemText primary="Planes" /></ListItemButton>
             <ListItemButton onClick={() => go("/yoamoamibebe-blog")}><ListItemText primary="yoamoamibebe blog" /></ListItemButton>
+            
+            {/* Servicios (mobile) */}
+            <ListItemButton
+              onClick={() => setMobileServicesOpen(v => !v)}
+              sx={{ "& .MuiListItemText-primary": { fontWeight: 700 } }}
+              aria-expanded={mobileServicesOpen ? "true" : "false"}
+              aria-controls="mobile-services-submenu"
+            >
+              <ListItemText primary="Servicios" />
+              <KeyboardArrowDown
+                sx={{ transition: "transform .2s", transform: mobileServicesOpen ? "rotate(180deg)" : "none" }}
+              />
+            </ListItemButton>
+
+            <Collapse in={mobileServicesOpen} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding id="mobile-services-submenu">
+                <ListItemButton sx={{ pl: 4 }} onClick={() => go("/programa-stem-care/transplantes")}>
+                  <ListItemIcon sx={{ minWidth: 28 }}>
+                    <MedicalServicesRounded sx={{ fontSize: 20, color: "#d2d2d2" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Transplantes de células madre" />
+                </ListItemButton>
+
+                <ListItemButton sx={{ pl: 4 }} onClick={() => go("/programa-stem-care/pulpa")}>
+                  <ListItemIcon sx={{ minWidth: 28 }}>
+                    <BiotechRounded sx={{ fontSize: 20, color: "#d2d2d2" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Pulpa de Diente de Leche" />
+                </ListItemButton>
+
+                <ListItemButton sx={{ pl: 4 }} onClick={() => go("/programa-stem-care/pruebas-geneticas")}>
+                  <ListItemIcon sx={{ minWidth: 28 }}>
+                    <ScienceRounded sx={{ fontSize: 20, color: "#d2d2d2" }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Pruebas Genéticas Veritas Int." />
+                </ListItemButton>
+              </List>
+            </Collapse>
+
+
+
+
             <Divider sx={{ my: 1, borderColor: "rgba(255,255,255,0.12)" }} />
             <ListItemButton onClick={() => go("/contacto")} sx={{ "& .MuiListItemText-primary": { fontWeight: 700 } }}>
               <ListItemText primary="contacto" />
