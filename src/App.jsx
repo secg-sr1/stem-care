@@ -27,6 +27,10 @@ import Contacto from "./pages/Contacto.jsx";
 
 import PorqueFamilias from "./pages/PorqueFamilias.jsx";
 
+import Transplantes from "./pages/Transplantes.jsx";
+import PulpaDeLeche from "./pages/PulpaDeLeche.jsx";
+import PruebasGen from "./pages/PruebasGen.jsx";
+
 function NavLinkBtn({ to, children }) {
   return (
     <Button
@@ -178,9 +182,9 @@ function Header() {
               ¿Por qué las familias eligen Stem Care?
             </MenuItem>
 
-            <MenuItem component={Link} to="/programa-stem-care/pasos" onClick={handleClose} sx={ITEM_SX}>
+            {/* <MenuItem component={Link} to="/programa-stem-care/pasos" onClick={handleClose} sx={ITEM_SX}>
               Pasos para contratar
-            </MenuItem>
+            </MenuItem> */}
 
             <MenuItem component={Link} to="/planes" onClick={handleClose} sx={ITEM_SX}>
               Planes de pago
@@ -207,7 +211,7 @@ function Header() {
               <List component="div" disablePadding sx={{ py: 0.25 }}>
                 <ListItemButton
                   component={Link}
-                  to="/programa-stem-care#transplantes"
+                  to="/programa-stem-care/transplantes"
                   onClick={handleClose}
                   sx={SUBITEM_SX}
                 >
@@ -219,7 +223,7 @@ function Header() {
 
                 <ListItemButton
                   component={Link}
-                  to="/programa-stem-care#pulpa"
+                  to="/programa-stem-care/pulpa"
                   onClick={handleClose}
                   sx={SUBITEM_SX}
                 >
@@ -231,7 +235,7 @@ function Header() {
 
                 <ListItemButton
                   component={Link}
-                  to="/programa-stem-care#veritas"
+                  to="/programa-stem-care/pruebas-geneticas"
                   onClick={handleClose}
                   sx={SUBITEM_SX}
                 >
@@ -334,6 +338,11 @@ export default function App() {
         <Route path="/yoamoamibebe-blog" element={<Blog />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/programa-stem-care/por-que-las-familias-eligen-stem-care" element={<PorqueFamilias />} />
+
+        <Route path="/programa-stem-care/transplantes" element={ <Transplantes /> } />
+        <Route path="/programa-stem-care/pulpa" element={ <PulpaDeLeche /> } />
+        <Route path="/programa-stem-care/pruebas-geneticas" element={ <PruebasGen /> } />
+
 
         <Route path="*" element={<div style={{ padding: 24, color: "#fff" }}>404</div>} />
       </Routes>

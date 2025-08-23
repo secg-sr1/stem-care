@@ -17,11 +17,17 @@ import EventAvailableRounded from "@mui/icons-material/EventAvailableRounded";
 import LocalHospitalRounded from "@mui/icons-material/LocalHospitalRounded";
 import ScienceRounded from "@mui/icons-material/ScienceRounded";
 
+import CribIcon from '@mui/icons-material/Crib';
+import ArticleIcon from '@mui/icons-material/Article';
+
 // Shared card style (same vibe as Planes)
 const CARD_SX = {
-  bgcolor: "#0b0f14",
-  color: "#fff",
+  // bgcolor: "#0b0f14",
+  bgcolor:"#fff",
+  color: "#0b0f14",
   borderRadius: 3,
+  border:1, 
+  borderColor:'#d2d2d2',
   border: "1px solid rgba(255,255,255,0.12)",
   boxShadow: "0 0 0 1px rgba(255,255,255,0.04) inset",
   transition: "transform .2s ease, box-shadow .2s ease",
@@ -32,7 +38,7 @@ function SectionHeader({ icon, text }) {
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
       {icon}
-      <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 0.2 }}>
+      <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 0.2, color:"primary.main" }}>
         {text}
       </Typography>
     </Box>
@@ -41,22 +47,26 @@ function SectionHeader({ icon, text }) {
 
 export default function Programa() {
   return (
-    <Box sx={{ bgcolor: "#05080d", minHeight: "100vh" }}>
+    // <Box sx={{ bgcolor: "#05080d", minHeight: "100vh" }}>
+    <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
       <Container sx={{ py: { xs: 5, md: 8 } }}>
-        <Typography
+        <Typography variant="h4" sx={{ color: "#05080d", fontWeight: 800, mb: { xs: 3, md: 5 } }}>
+          ¿Por qué almacenar sangre del cordón de mi bebé?
+        </Typography>
+        {/* <Typography
           variant="h4"
-          sx={{ color: "#fff", fontWeight: 800, mb: { xs: 3, md: 5 }, letterSpacing: 0.2 }}
+          sx={{ color: "#0b0f14", fontWeight: 800, mb: { xs: 3, md: 5 }, letterSpacing: 0.2 }}
         >
           Programa Stem Care
-        </Typography>
+        </Typography> */}
 
         {/* NEW: ¿Por qué almacenar…? */}
         <Card id="por-que-almacenar" sx={{ ...CARD_SX, mb: 3 }}>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-            <SectionHeader
-              icon={<FavoriteRounded sx={{ color: "primary.main" }} />}
+            {/* <SectionHeader
+              icon={<CribIcon sx={{ color: "primary.main" }} />}
               text="¿Por qué almacenar sangre del cordón de mi bebé?"
-            />
+            /> */}
 
             <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>
               La respuesta a esta pregunta es inmediata: <strong>Porque yo amo a mi bebé</strong>,

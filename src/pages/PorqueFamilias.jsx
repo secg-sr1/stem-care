@@ -28,6 +28,9 @@ import VaccinesRounded from "@mui/icons-material/VaccinesRounded";
 import GavelRounded from "@mui/icons-material/GavelRounded";
 import ScienceRounded from "@mui/icons-material/ScienceRounded";
 import DomainVerificationRounded from "@mui/icons-material/DomainVerificationRounded";
+import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
+
+import ArticleIcon from '@mui/icons-material/Article';
 
 // const CARD_SX = {
 //   bgcolor: "#0b0f14",
@@ -54,7 +57,7 @@ function SectionHeader({ icon, text }) {
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
       {icon}
-      <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 0.2 }}>
+      <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 0.2, color:"primary.main" }}>
         {text}
       </Typography>
     </Box>
@@ -66,31 +69,36 @@ export default function PorqueFamilias() {
     // <Box sx={{ bgcolor: "#05080d", minHeight: "100vh" }}>
     <Box sx={{ bgcolor: "#ffffffff", minHeight: "100vh" }}>
       <Container sx={{ py: { xs: 5, md: 8 } }}>
-        <Typography
+        {/* <Typography
           variant="h4"
           sx={{ color: "#fff", fontWeight: 800, mb: { xs: 3, md: 5 }, letterSpacing: 0.2 }}
         >
+          ¿Por qué las familias eligen a Stem Care?
+        </Typography> */}
+        <Typography variant="h4" sx={{ color: "#05080d", fontWeight: 800, mb: { xs: 3, md: 5 } }}>
           ¿Por qué las familias eligen a Stem Care?
         </Typography>
 
         {/* --- Section 1 --- */}
         <Card id="familias-por-que" sx={{ ...CARD_SX, mb: 3, border:1, borderColor:'#d2d2d2' }}>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-            <SectionHeader
-              icon={<ArrowForward sx={{ color: "#05080d" }} />}
-              text="¿POR QUÉ LAS FAMILIAS ELIGEN A STEM CARE?"
-            />
+            {/* <SectionHeader
+              // icon={<ArrowForward sx={{ color: "#05080d" }} />}
+              icon={<FamilyRestroomIcon sx={{ color: "primary.main" }} />}
+              text="¿Por qué las familias eligen a Stem Care"
+            /> */}
 
             <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>
               Stem Care es único en Guatemala y la región: ofrece un programa genuino de
               bienestar y <strong>salud preventiva</strong> y acceso inmediato a profesionales
               médicos altamente calificados para servicios especializados.
+
             </Typography>
 
             <Divider sx={{ my: 2, opacity: 0.12 }} />
 
             {/* 1 */}
-            <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5 }}>
+            <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5, color:"primary.main" }}>
               1. Almacenamiento de células madre de cordón umbilical en el país
             </Typography>
             <Typography variant="body2" sx={{ opacity: 0.95, mb: 1.5 }}>
@@ -105,7 +113,7 @@ export default function PorqueFamilias() {
             </Typography>
 
             {/* 2 */}
-            <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5 }}>
+            <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5, color:"primary.main" }}>
               2. Traslado y procesamiento en las primeras 24 horas
             </Typography>
             <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>
@@ -116,7 +124,7 @@ export default function PorqueFamilias() {
             </Typography>
 
             {/* 3 */}
-            <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5 }}>
+            <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5, color:"primary.main" }}>
               3. Disponibilidad inmediata para los clientes
             </Typography>
             <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>
@@ -126,7 +134,7 @@ export default function PorqueFamilias() {
             </Typography>
 
             {/* 4 */}
-            <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5 }}>
+            <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5, color:"primary.main" }}>
               4. Asesoría inmediata sobre tratamientos
             </Typography>
             <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>
@@ -141,7 +149,7 @@ export default function PorqueFamilias() {
             </Typography>
 
             {/* 5 */}
-            <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5 }}>
+            <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5, color:"primary.main" }}>
               5. Asesoría genética en criopreservación
             </Typography>
             <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>
@@ -151,7 +159,7 @@ export default function PorqueFamilias() {
             </Typography>
 
             {/* 6 */}
-            <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5 }}>
+            <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5, color:"primary.main" }}>
               6. Acceso a tests genéticos para recién nacidos
             </Typography>
             <Typography variant="body2" sx={{ opacity: 0.95 }}>
@@ -165,39 +173,39 @@ export default function PorqueFamilias() {
             <List dense sx={{ mt: 2 }}>
               <ListItem sx={{ px: 0 }}>
                 <ListItemIcon sx={{ minWidth: 28 }}>
-                  <LocalHospitalRounded sx={{ color: "#05080d" }} />
+                  <LocalHospitalRounded sx={{ color: "primary.main" }} />
                 </ListItemIcon>
-                <ListItemText primary="Equipo médico propio para recolección 24/7" />
+                <ListItemText primary="Equipo médico propio para recolección 24/7" sx={{ color:"primary.main"}} />
               </ListItem>
               <ListItem sx={{ px: 0 }}>
                 <ListItemIcon sx={{ minWidth: 28 }}>
-                  <LocalShippingRounded sx={{ color: "#05080d" }} />
+                  <LocalShippingRounded sx={{ color: "primary.main" }} />
                 </ListItemIcon>
-                <ListItemText primary="Traslado inmediato al laboratorio autorizado" />
+                <ListItemText primary="Traslado inmediato al laboratorio autorizado" sx={{ color:"primary.main"}} />
               </ListItem>
               <ListItem sx={{ px: 0 }}>
                 <ListItemIcon sx={{ minWidth: 28 }}>
-                  <FlashOnRounded sx={{ color: "#05080d" }} />
+                  <FlashOnRounded sx={{ color: "primary.main" }} />
                 </ListItemIcon>
-                <ListItemText primary="Disponibilidad local e inmediata" />
+                <ListItemText primary="Disponibilidad local e inmediata" sx={{ color:"primary.main"}} />
               </ListItem>
               <ListItem sx={{ px: 0 }}>
                 <ListItemIcon sx={{ minWidth: 28 }}>
-                  <SupportAgentRounded sx={{ color: "#05080d" }} />
+                  <SupportAgentRounded sx={{ color: "primary.main" }} />
                 </ListItemIcon>
-                <ListItemText primary="Asesoría clínica e investigación" />
+                <ListItemText primary="Asesoría clínica e investigación" sx={{ color:"primary.main"}} />
               </ListItem>
               <ListItem sx={{ px: 0 }}>
                 <ListItemIcon sx={{ minWidth: 28 }}>
-                  <BiotechRounded sx={{ color: "#05080d" }} />
+                  <BiotechRounded sx={{ color: "primary.main" }} />
                 </ListItemIcon>
-                <ListItemText primary="Apoyo genómico con Veritas Intercontinental" />
+                <ListItemText primary="Apoyo genómico con Veritas Intercontinental" sx={{ color:"primary.main"}} />
               </ListItem>
               <ListItem sx={{ px: 0 }}>
                 <ListItemIcon sx={{ minWidth: 28 }}>
-                  <VaccinesRounded sx={{ color: "#05080d" }} />
+                  <VaccinesRounded sx={{ color: "primary.main" }} />
                 </ListItemIcon>
-                <ListItemText primary="Tests genéticos para recién nacidos (myNewborn)" />
+                <ListItemText primary="Tests genéticos para recién nacidos (myNewborn)" sx={{ color:"primary.main"}} />
               </ListItem>
             </List>
           </CardContent>
@@ -207,7 +215,7 @@ export default function PorqueFamilias() {
         <Card id="autorizaciones" sx={{ ...CARD_SX,  border:1, borderColor:'#d2d2d2' }}>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
             <SectionHeader
-              icon={<ArrowForward sx={{ color: "#05080d" }} />}
+              icon={<ArticleIcon sx={{ color: "primary.main" }} />}
               text="¿CON QUÉ AUTORIZACIONES CUENTA STEM CARE PARA OPERAR EL LABORATORIO LOCALMENTE?"
             />
 
@@ -219,30 +227,33 @@ export default function PorqueFamilias() {
             <List dense>
               <ListItem sx={{ px: 0 }}>
                 <ListItemIcon sx={{ minWidth: 28 }}>
-                  <FiberManualRecord sx={{ color: "#05080d", fontSize:'16px' }} />
+                  <FiberManualRecord sx={{ color: "primary.main", fontSize:'16px' }} />
                 </ListItemIcon>
                 <ListItemText
                   primary="Registro Sanitario como Laboratorio — Ministerio de Salud Pública (DRACES)"
+                  sx={{ color:"primary.main"}}
                 />
               </ListItem>
 
               <ListItem sx={{ px: 0 }}>
                 <ListItemIcon sx={{ minWidth: 28 }}>
-                  <FiberManualRecord sx={{ color: "#05080d", fontSize:'16px' }} />
+                  <FiberManualRecord sx={{ color: "primary.main", fontSize:'16px' }} />
                 </ListItemIcon>
                 <ListItemText
                   primary="Registro como Laboratorio en el Colegio de Químicos y Farmacéuticos de Guatemala"
                   secondary="Único laboratorio autorizado para procesar y almacenar células madre de cordón umbilical en Guatemala."
+                  sx={{ color:"primary.main" }}
                 />
               </ListItem>
 
               <ListItem sx={{ px: 0 }}>
                 <ListItemIcon sx={{ minWidth: 28 }}>
-                  <FiberManualRecord sx={{ color: "#05080d", fontSize:'16px' }} />
+                  <FiberManualRecord sx={{ color: "primary.main", fontSize:'16px' }} />
                 </ListItemIcon>
                 <ListItemText
                   primary="Registro en CBER/FDA (Center for Biologics Evaluation and Research)"
                   secondary="Único laboratorio de células madre de cordón umbilical de Guatemala registrado."
+                  sx={{ color:"primary.main"}}
                 />
               </ListItem>
             </List>

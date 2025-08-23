@@ -2,14 +2,14 @@
   padding: 48px 24px;
   max-width: 1200px;
   margin: 0 auto;
-  color: #eaeaea;
+  color: #05080d;
 }
 .planes__title {
   font-size: 30px;
   font-weight: 400;
   margin: 0 0 12px 0;
-  color: #fff;
-  background: linear-gradient(135deg, #1c023d, #1c1820);
+  color: #05080d;
+  background: linear-gradient(135deg, #a7a7a7, #ffffff);
   padding: 12px 16px;
   border-radius: 0px;
   border: 1;
@@ -44,8 +44,8 @@
 
 /* Card styles */
 .plan-card {
-  background: #0d0019;
-  border: 1px solid #2a2a2a;
+  background: #fff;
+  border: 1px solid #d2d2d2;
   border-radius: 5px;
   padding: 20px;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -53,6 +53,7 @@
 .plan-card__title {
   font-size: 22px;
   margin: 0 0 12px 0;
+  color: #1976d2;
 }
 .plan-card__prices {
   list-style: none;
@@ -82,8 +83,8 @@
   opacity: 0.9;
 }
 .icon.sm { font-size: 20px !important; margin-right: 8px; }
-.icon-accent { color: #ffffff; }     /* teal accent */
-.icon-success { color: #353735; }    /* green for checks */
+.icon-accent { color: #1976d2; }     /* teal accent */
+.icon-success { color: #1976d2; }    /* green for checks */
 
 /* section header inside a card */
 .plan-card__section {
@@ -93,6 +94,7 @@
   margin: 8px 0 6px;
   font-weight: 600;
   letter-spacing: .3px;
+  color: #1976d2;
 }
 .plan-card__section-title { opacity: .95; }
 
@@ -109,3 +111,34 @@
   margin: 6px 0;
 }
 .with-icons li > span { line-height: 1.45; }
+
+
+/* White info card above the title */
+.info-card {
+  background: #ffffff;
+  color: #111;
+  border: 1px solid #e7e7e7;
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin-bottom: 20px;       /* space before the H1 */
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+.info-card__title {
+  margin: 0 0 10px 0;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.2px;
+  color:#1976d2
+}
+
+.info-card__list {
+  margin: 0;
+  padding-left: 22px;        /* indentation for numbers */
+}
+
+.info-card__list li {
+  margin: 8px 0;
+  line-height: 1.6;
+  font-size: 15px;
+}
