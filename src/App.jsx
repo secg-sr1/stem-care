@@ -31,6 +31,8 @@ import Transplantes from "./pages/Transplantes.jsx";
 import PulpaDeLeche from "./pages/PulpaDeLeche.jsx";
 import PruebasGen from "./pages/PruebasGen.jsx";
 
+import Footer from "./pages/Footer.jsx";
+
 function NavLinkBtn({ to, children }) {
   return (
     <Button
@@ -390,6 +392,8 @@ export default function App() {
 
         <Route path="*" element={<div style={{ padding: 24, color: "#fff" }}>404</div>} />
       </Routes>
+
+      <Footer />
     </BrowserRouter>
   );
 }

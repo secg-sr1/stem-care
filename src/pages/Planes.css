@@ -53,7 +53,7 @@
 .plan-card__title {
   font-size: 22px;
   margin: 0 0 12px 0;
-  color: #1976d2;
+  color: #5b5868;
 }
 .plan-card__prices {
   list-style: none;
@@ -83,8 +83,8 @@
   opacity: 0.9;
 }
 .icon.sm { font-size: 20px !important; margin-right: 8px; }
-.icon-accent { color: #1976d2; }     /* teal accent */
-.icon-success { color: #1976d2; }    /* green for checks */
+.icon-accent { color: #5b5868; }     /* teal accent */
+.icon-success { color: #5b5868; }    /* green for checks */
 
 /* section header inside a card */
 .plan-card__section {
@@ -94,7 +94,7 @@
   margin: 8px 0 6px;
   font-weight: 600;
   letter-spacing: .3px;
-  color: #1976d2;
+  color: #5b5868;
 }
 .plan-card__section-title { opacity: .95; }
 
@@ -129,7 +129,7 @@
   font-weight: 800;
   font-size: 20px;
   letter-spacing: 0.2px;
-  color:#1976d2
+  color:#5b5868
 }
 
 .info-card__list {

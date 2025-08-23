@@ -38,7 +38,7 @@ function SectionHeader({ icon, text }) {
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
       {icon}
-      <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 0.2, color:"primary.main" }}>
+      <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 0.2, color:"#26313a" }}>
         {text}
       </Typography>
     </Box>
@@ -50,7 +50,7 @@ export default function Programa() {
     // <Box sx={{ bgcolor: "#05080d", minHeight: "100vh" }}>
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
       <Container sx={{ py: { xs: 5, md: 8 } }}>
-        <Typography variant="h4" sx={{ color: "#05080d", fontWeight: 800, mb: { xs: 3, md: 5 } }}>
+        <Typography variant="h4" sx={{ color: "#5b5868", fontWeight: 800, mb: { xs: 3, md: 5 } }}>
           ¿Por qué almacenar sangre del cordón de mi bebé?
         </Typography>
         {/* <Typography
@@ -110,7 +110,7 @@ export default function Programa() {
         <Card id="que-es" sx={{ ...CARD_SX, mb: 3 }}>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
             <SectionHeader
-              icon={<InfoOutlined sx={{ color: "primary.main" }} />}
+              icon={<InfoOutlined sx={{ color: "#5b5868" }} />}
               text="¿En qué consiste el Programa Stem Care?"
             />
 
@@ -123,7 +123,7 @@ export default function Programa() {
             <Divider sx={{ my: 2, opacity: 0.12 }} />
 
             <SectionHeader
-              icon={<LocalHospitalRounded sx={{ color: "primary.main" }} />}
+              icon={<LocalHospitalRounded sx={{ color: "#5b5868" }} />}
               text="Entrega del kit y recolección"
             />
 
@@ -142,7 +142,7 @@ export default function Programa() {
             <Divider sx={{ my: 2, opacity: 0.12 }} />
 
             <SectionHeader
-              icon={<ScienceRounded sx={{ color: "primary.main" }} />}
+              icon={<ScienceRounded sx={{ color: "#5b5868" }} />}
               text="Procesamiento y almacenamiento"
             />
 
@@ -165,7 +165,7 @@ export default function Programa() {
         <Card id="contrato-18" sx={{ ...CARD_SX }}>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
             <SectionHeader
-              icon={<EventAvailableRounded sx={{ color: "primary.main" }} />}
+              icon={<EventAvailableRounded sx={{ color: "#5b5868" }} />}
               text="¿Qué pasa al cumplirse los 18 años?"
             />
 

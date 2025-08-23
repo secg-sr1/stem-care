@@ -31,7 +31,7 @@ function SectionHeader({ icon, text }) {
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
       {icon}
-      <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 0.2, color:"primary.main" }}>
+      <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 0.2, color:"#5b5868" }}>
         {text}
       </Typography>
     </Box>
@@ -144,7 +144,7 @@ function PlanCard({ plan }) {
 
       {/* Precios header + list */}
       <div className="plan-card__section">
-        <ArrowForward className="icon icon-accent" sx={{ color:"primary.main"}} />
+        <ArrowForward className="icon icon-accent" sx={{ color:"#5b5868"}} />
         <span className="plan-card__section-title">Precios</span>
       </div>
       <ul className="plan-card__prices with-icons">
@@ -232,7 +232,7 @@ export default function Planes() {
         {/* <h1 className="planes__title">Planes y Programas</h1> */}
         <ProcesoPrevio />     
         <SectionHeader
-              icon={<ShoppingCartCheckoutIcon sx={{ color: "primary.main" }} />}
+              icon={<ShoppingCartCheckoutIcon sx={{ color: "#5b5868" }} />}
               text="Planes de Pago"
             />
 
