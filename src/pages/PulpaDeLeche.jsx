@@ -37,7 +37,7 @@ const CARD_SX = {
 
 function SectionHeader({ icon, text }) {
   return (
-    <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1, color:"primary.main" }}>
+    <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1, color:"#5b5868" }}>
       {icon}
       <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 0.2 }}>
         {text}
@@ -120,7 +120,7 @@ export default function PulpaDeLeche() {
         {/* Intro / ciencia */}
         <Card id="pulpa" sx={{ ...CARD_SX, mb: 3, border:1, borderColor:"#d2d2d2" }}>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-            <SectionHeader icon={<Dentistry sx={{ color: "primary.main" }} />} text="Pulpa de Diente de Leche" />
+            <SectionHeader icon={<Dentistry sx={{ color: "#5b5868" }} />} text="Pulpa de Diente de Leche" />
             <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>
               La investigación de células madre se ha convertido en un campo prometedor para la regeneración
               de tejidos y la medicina regenerativa. Desde la caracterización de células madre mesenquimales
@@ -140,11 +140,11 @@ export default function PulpaDeLeche() {
             <Divider sx={{ my: 2, opacity: 0.12 }} />
             <Grid container spacing={3}>
               <Grid item xs={12} md={6}>
-                <SectionHeader icon={<BiotechRounded sx={{ color: "primary.main" }} />} text="Las células de la pulpa" />
+                <SectionHeader icon={<BiotechRounded sx={{ color: "#5b5868" }} />} text="Las células de la pulpa" />
                 <Bullets items={celulasPulpa} />
               </Grid>
               <Grid item xs={12} md={6}>
-                <SectionHeader icon={<ScienceRounded sx={{ color: "primary.main" }} />} text="Funciones de la pulpa" />
+                <SectionHeader icon={<ScienceRounded sx={{ color: "#5b5868" }} />} text="Funciones de la pulpa" />
                 <Bullets items={funcionesPulpa} />
               </Grid>
             </Grid>
@@ -154,7 +154,7 @@ export default function PulpaDeLeche() {
         {/* Usos y beneficios */}
         <Card sx={{ ...CARD_SX, mb: 3, border:1, borderColor:"#d2d2d2" }}>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-            <SectionHeader icon={<ChecklistRounded sx={{ color: "primary.main" }} />} text="Usos y beneficios" />
+            <SectionHeader icon={<ChecklistRounded sx={{ color: "#5b5868" }} />} text="Usos y beneficios" />
             <Bullets items={usosBeneficios} />
           </CardContent>
         </Card>
@@ -163,7 +163,7 @@ export default function PulpaDeLeche() {
         <Card sx={{ ...CARD_SX, mb: 3, border:1, borderColor:"#d2d2d2" }}>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
             <SectionHeader
-              icon={<AcUnitRounded sx={{ color: "primary.main" }} />}
+              icon={<AcUnitRounded sx={{ color: "#5b5868" }} />}
               text="Criogénesis: técnica de almacenamiento de células madre"
             />
             <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>
@@ -187,7 +187,7 @@ export default function PulpaDeLeche() {
             </Typography>
 
             <Divider sx={{ my: 2, opacity: 0.12 }} />
-            <SectionHeader icon={<TipsAndUpdatesRounded sx={{ color: "primary.main" }} />} text="Nuestros beneficios" />
+            <SectionHeader icon={<TipsAndUpdatesRounded sx={{ color: "#5b5868" }} />} text="Nuestros beneficios" />
             <Bullets items={beneficiosPropios} />
           </CardContent>
         </Card>
@@ -198,20 +198,20 @@ export default function PulpaDeLeche() {
             <Grid container spacing={3}>
               <Grid item xs={12} md={6}>
                 <SectionHeader
-                  icon={<AssignmentTurnedInRounded sx={{ color: "primary.main" }} />}
+                  icon={<AssignmentTurnedInRounded sx={{ color: "#5b5868" }} />}
                   text="Pasos para la contratación"
                 />
                 <Bullets items={pasosContratacion} />
                 <Divider sx={{ my: 2, opacity: 0.12 }} />
                 <SectionHeader
-                  icon={<TipsAndUpdatesRounded sx={{ color: "primary.main" }} />}
+                  icon={<TipsAndUpdatesRounded sx={{ color: "#5b5868" }} />}
                   text="Recomendaciones"
                 />
                 <Bullets items={recomendaciones} />
               </Grid>
 
               <Grid item xs={12} md={6}>
-                <SectionHeader icon={<ReceiptLongRounded sx={{ color: "primary.main" }} />} text="Costos" />
+                <SectionHeader icon={<ReceiptLongRounded sx={{ color: "#5b5868" }} />} text="Costos" />
                 <List dense sx={{ py: 0 }}>
                   <ListItem sx={{ px: 0 }}>
                     <ListItemIcon sx={{ minWidth: 24, mt: "2px" }}>

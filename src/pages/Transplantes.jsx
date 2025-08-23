@@ -40,7 +40,7 @@ function SectionHeader({ icon, text }) {
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
       {icon}
-      <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 0.2, color:"primary.main" }}>
+      <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: 0.2, color:"#5b5868" }}>
         {text}
       </Typography>
     </Box>
@@ -52,7 +52,7 @@ function CategoryList({ title, icon, items }) {
     <Box sx={{ mb: 3 }}>
       <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 0.5 }}>
         {icon}
-        <Typography variant="subtitle1" sx={{ fontWeight: 700, color:"primary.main" }}>
+        <Typography variant="subtitle1" sx={{ fontWeight: 700, color:"#5b5868" }}>
           {title}
         </Typography>
       </Box>
@@ -76,7 +76,7 @@ export default function Transplantes() {
   const grupos = [
     {
       title: "Aplicaciones",
-      icon: <BiotechRounded sx={{ color: "primary.main" }} />,
+      icon: <BiotechRounded sx={{ color: "#5b5868" }} />,
       items: [
         "Diabetes",
         "Esclerosis Múltiple",
@@ -90,7 +90,7 @@ export default function Transplantes() {
     },
     {
       title: "Otras enfermedades tumorales",
-      icon: <ScienceRounded sx={{ color: "primary.main" }} />,
+      icon: <ScienceRounded sx={{ color: "#5b5868" }} />,
       items: [
         "Tumor cerebral",
         "Cáncer de mama",
@@ -103,17 +103,17 @@ export default function Transplantes() {
     },
     {
       title: "Enfermedades autoinmunes",
-      icon: <ShieldRounded sx={{ color: "primary.main" }} />,
+      icon: <ShieldRounded sx={{ color: "#5b5868" }} />,
       items: ["Síndrome de Evan"],
     },
     {
       title: "Regeneración de órganos",
-      icon: <AutoAwesomeRounded sx={{ color: "primary.main" }} />,
+      icon: <AutoAwesomeRounded sx={{ color: "#5b5868" }} />,
       items: ["Reparación de cicatriz post-infarto", "Derrame cerebral", "Enfermedades hepáticas"],
     },
     {
       title: "Leucemias agudas",
-      icon: <BloodtypeRounded sx={{ color: "primary.main" }} />,
+      icon: <BloodtypeRounded sx={{ color: "#5b5868" }} />,
       items: [
         "Leucemia bifenotípica aguda",
         "Leucemia linfocítica aguda (ALL)",
@@ -123,7 +123,7 @@ export default function Transplantes() {
     },
     {
       title: "Leucemias crónicas",
-      icon: <BloodtypeRounded sx={{ color: "primary.main" }} />,
+      icon: <BloodtypeRounded sx={{ color: "#5b5868" }} />,
       items: [
         "Leucemia linfocítica crónica (CLL)",
         "Leucemia mielocítica crónica (CML)",
@@ -133,7 +133,7 @@ export default function Transplantes() {
     },
     {
       title: "Síndromes mielodisplásicos",
-      icon: <BiotechRounded sx={{ color: "primary.main" }} />,
+      icon: <BiotechRounded sx={{ color: "#5b5868" }} />,
       items: [
         "Amiloidosis",
         "Leucemia mielomonocítica crónica (CMML)",
@@ -145,7 +145,7 @@ export default function Transplantes() {
     },
     {
       title: "Síndromes de células madre",
-      icon: <BiotechRounded sx={{ color: "primary.main" }} />,
+      icon: <BiotechRounded sx={{ color: "#5b5868" }} />,
       items: [
         "Anemia aplástica severa",
         "Citopenia congénita",
@@ -156,22 +156,22 @@ export default function Transplantes() {
     },
     {
       title: "Síndromes mieloproliferativos",
-      icon: <BiotechRounded sx={{ color: "primary.main" }} />,
+      icon: <BiotechRounded sx={{ color: "#5b5868" }} />,
       items: ["Mielofibrosis aguda", "Metaplasia mieloide agnogénica (Mielofibrosis)", "Trombocitemia esencial", "Policitemia Vera"],
     },
     {
       title: "Síndromes linfoproliferativos",
-      icon: <BloodtypeRounded sx={{ color: "primary.main" }} />,
+      icon: <BloodtypeRounded sx={{ color: "#5b5868" }} />,
       items: ["Enfermedad de Hodgkin", "Linfoma No-Hodgkin", "Leucemia promielocítica"],
     },
     {
       title: "Síndromes fagocitarios",
-      icon: <BubbleChartRounded sx={{ color: "primary.main" }} />,
+      icon: <BubbleChartRounded sx={{ color: "#5b5868" }} />,
       items: ["Síndrome de Chédiak-Higashi", "Granulomatosis crónica", "Deficiencia de actina del neutrófilo", "Disgénesis reticular"],
     },
     {
       title: "Enfermedades por depósito lisosomal",
-      icon: <ScienceRounded sx={{ color: "primary.main" }} />,
+      icon: <ScienceRounded sx={{ color: "#5b5868" }} />,
       items: [
         "Adrenoleucodistrofia",
         "Enfermedad de Gaucher",
@@ -193,7 +193,7 @@ export default function Transplantes() {
     },
     {
       title: "Síndromes histiocíticos",
-      icon: <BiotechRounded sx={{ color: "primary.main" }} />,
+      icon: <BiotechRounded sx={{ color: "#5b5868" }} />,
       items: [
         "Linfohistiocitosis hemofagocítica familiar",
         "Hemofagocitosis",
@@ -203,12 +203,12 @@ export default function Transplantes() {
     },
     {
       title: "Anormalidades eritrocíticas congénitas",
-      icon: <BloodtypeRounded sx={{ color: "primary.main" }} />,
+      icon: <BloodtypeRounded sx={{ color: "#5b5868" }} />,
       items: ["Beta talasemia mayor", "Anemia de Blackfan-Diamond", "Aplasia pura de eritrocitos", "Anemia de células falciformes"],
     },
     {
       title: "Síndromes congénitos del sistema inmune",
-      icon: <ShieldRounded sx={{ color: "primary.main" }} />,
+      icon: <ShieldRounded sx={{ color: "#5b5868" }} />,
       items: [
         "Ausencia de linfocitos T y B (SCID)",
         "Ausencia de linfocitos T con linfocitos B normales (SCID)",
@@ -225,7 +225,7 @@ export default function Transplantes() {
     },
     {
       title: "Otras enfermedades congénitas",
-      icon: <BiotechRounded sx={{ color: "primary.main" }} />,
+      icon: <BiotechRounded sx={{ color: "#5b5868" }} />,
       items: [
         "Hipoplasia del cartílago",
         "Lipofuscinosis ceroide",
@@ -238,12 +238,12 @@ export default function Transplantes() {
     },
     {
       title: "Anormalidades plaquetarias congénitas",
-      icon: <BloodtypeRounded sx={{ color: "primary.main" }} />,
+      icon: <BloodtypeRounded sx={{ color: "#5b5868" }} />,
       items: ["Amegacariocitosis / Trombocitopenia congénita"],
     },
     {
       title: "Desórdenes de células plasmáticas",
-      icon: <BiotechRounded sx={{ color: "primary.main" }} />,
+      icon: <BiotechRounded sx={{ color: "#5b5868" }} />,
       items: ["Mieloma múltiple", "Leucemia de células plasmáticas", "Macroglobulinemia de Waldenström"],
     },
   ];
@@ -259,7 +259,7 @@ export default function Transplantes() {
         <Card id="transplantes" sx={{ ...CARD_SX, mb: 3, border:1, borderColor:"#d2d2d2" }}>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
             <SectionHeader
-              icon={<HealingRounded sx={{ color: "primary.main" }} />}
+              icon={<HealingRounded sx={{ color: "#5b5868" }} />}
               text="¿En qué enfermedades pueden aplicarse las células madre de cordón umbilical?"
             />
 
@@ -289,7 +289,7 @@ export default function Transplantes() {
         <Card sx={{ ...CARD_SX, border:1, borderColor:"#d2d2d2" }}>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
             <SectionHeader
-              icon={<LocalHospitalRounded sx={{ color: "primary.main" }} />}
+              icon={<LocalHospitalRounded sx={{ color: "#5b5868" }} />}
               text="Aplicaciones clínicas (enfermedades y síndromes)"
             />
             <Divider sx={{ my: 2, opacity: 0.12 }} />
@@ -329,7 +329,7 @@ export default function Transplantes() {
 
             <Divider sx={{ mt: 1, opacity: 0.12 }} />
             <Box sx={{ mt: 2, display: "flex", alignItems: "center", gap: 1 }}>
-              <ScienceRounded sx={{ color: "primary.main" }} />
+              <ScienceRounded sx={{ color: "#5b5868" }} />
               <Typography variant="body2" sx={{ opacity: 0.85 }}>
                 La indicación y aplicación terapéutica debe ser evaluada por el equipo médico tratante,
                 con base en la evidencia científica más actual y el contexto clínico del paciente.
