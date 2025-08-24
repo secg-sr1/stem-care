@@ -32,7 +32,7 @@ import PulpaDeLeche from "./pages/PulpaDeLeche.jsx";
 import PruebasGen from "./pages/PruebasGen.jsx";
 
 import Footer from "./pages/Footer.jsx";
-import FloatingCta from "./pages/FloatingCTA.jsx";
+import FloatingCta from "./pages/FloatingCta.jsx";
 
 function NavLinkBtn({ to, children }) {
   return (
