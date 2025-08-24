@@ -32,6 +32,7 @@ import PulpaDeLeche from "./pages/PulpaDeLeche.jsx";
 import PruebasGen from "./pages/PruebasGen.jsx";
 
 import Footer from "./pages/Footer.jsx";
+import FloatingCta from "./pages/FloatingCTA.jsx";
 
 function NavLinkBtn({ to, children }) {
   return (
@@ -172,6 +173,7 @@ function Header() {
             anchorEl={anchorEl}
             open={openMenu}
             onClose={handleClose}
+            disableScrollLock 
             keepMounted
             anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
             transformOrigin={{ vertical: "top", horizontal: "left" }}
@@ -393,7 +395,13 @@ export default function App() {
         <Route path="*" element={<div style={{ padding: 24, color: "#fff" }}>404</div>} />
       </Routes>
 
+
+      <FloatingCta align="center" bottom={38} href="https://www.teravida.org/" label="Pregunta a StemCare AI" />
+
       <Footer />
+      
+
+
     </BrowserRouter>
   );
 }
