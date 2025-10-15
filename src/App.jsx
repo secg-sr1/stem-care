@@ -9,6 +9,8 @@ import {
   BrowserRouter, Routes, Route, Link, useLocation, useNavigate
 } from "react-router-dom";
 
+import { LanguageProvider } from "./contexts/LanguageContext";
+
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import MedicalServicesRounded from "@mui/icons-material/MedicalServicesRounded";
@@ -23,6 +25,7 @@ import Acerca from "./pages/Acerca.jsx";
 import Programa from "./pages/Programa.jsx";
 import Planes from "./pages/Planes.jsx";
 import Blog from "./pages/Blog.jsx";
+import BlogPost from "./pages/BlogPost.jsx";
 import Contacto from "./pages/Contacto.jsx";
 
 import PorqueFamilias from "./pages/PorqueFamilias.jsx";
@@ -375,15 +378,17 @@ function SpacerUnlessHome() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <SpacerUnlessHome />
-      <Routes>
+    <LanguageProvider>
+      <BrowserRouter>
+        <Header />
+        <SpacerUnlessHome />
+        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/acerca" element={<Acerca />} />
         <Route path="/programa-stem-care" element={<Programa />} />
         <Route path="/planes" element={<Planes />} />
         <Route path="/yoamoamibebe-blog" element={<Blog />} />
+        <Route path="/yoamoamibebe-blog/:slug" element={<BlogPost />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/programa-stem-care/por-que-las-familias-eligen-stem-care" element={<PorqueFamilias />} />
 
@@ -398,10 +403,10 @@ export default function App() {
 
       <FloatingCta align="center" bottom={38} href="https://www.teravida.org/" label="Pregunta a StemCare AI" />
 
-      <Footer />
-      
+        <Footer />
+        
 
-
-    </BrowserRouter>
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }
