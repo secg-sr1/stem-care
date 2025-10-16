@@ -400,7 +400,39 @@ export default function App() {
         <Route path="/programa-stem-care/pruebas-geneticas" element={ <PruebasGen /> } />
 
 
-        <Route path="*" element={<div style={{ padding: 24, color: "#fff" }}>404</div>} />
+        <Route path="*" element={
+          <div style={{ 
+            padding: 24, 
+            color: "#fff", 
+            textAlign: "center",
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            background: "linear-gradient(135deg, #0e1a28 0%, #1a2332 100%)"
+          }}>
+            <h1 style={{ fontSize: "3rem", marginBottom: "1rem" }}>404</h1>
+            <h2 style={{ fontSize: "1.5rem", marginBottom: "2rem", color: "#e8edf6" }}>Página no encontrada</h2>
+            <p style={{ fontSize: "1.1rem", marginBottom: "2rem", maxWidth: "600px" }}>
+              La página que buscas no existe o no está disponible en este momento.
+            </p>
+            <Button 
+              component={Link} 
+              to="/" 
+              variant="contained" 
+              sx={{ 
+                px: 4, 
+                py: 1.5, 
+                fontSize: "1.1rem",
+                backgroundColor: "#5b5868",
+                "&:hover": { backgroundColor: "#4e4a5b" }
+              }}
+            >
+              Volver al Inicio
+            </Button>
+          </div>
+        } />
       </Routes>
 
 
