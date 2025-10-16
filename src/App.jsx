@@ -1,10 +1,11 @@
 import * as React from "react";
 import {
   AppBar, Box, Button, Stack, Toolbar, Typography,
-  IconButton, Drawer, List, ListItemButton, ListItemText, Divider, Menu, MenuItem, Collapse, ListItemIcon
+  IconButton, Drawer, List, ListItemButton, ListItemText, Divider, Menu, MenuItem, Collapse, ListItemIcon, Tooltip
 } from "@mui/material";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import {
   BrowserRouter, Routes, Route, Link, useLocation, useNavigate
 } from "react-router-dom";
@@ -111,9 +112,11 @@ function Header() {
       elevation={0}
       color="transparent"
       sx={{
-        bgcolor: "transparent !important",
-        boxShadow: "none",
+        bgcolor: "rgba(0, 0, 0, 0.7) !important",
+        backdropFilter: "blur(10px)",
+        boxShadow: "0 2px 20px rgba(0, 0, 0, 0.1)",
         px: { xs: 2, md: 4 },
+        transition: "all 0.3s ease-in-out",
       }}
     >
       <Toolbar disableGutters sx={{ minHeight: { xs: 64, md: 82 }, gap: 1 }}>
@@ -402,6 +405,40 @@ export default function App() {
 
 
       <FloatingCta align="center" bottom={38} href="https://www.teravida.org/" label="Pregunta a StemCare AI" />
+
+      {/* WhatsApp Button - Fixed Position */}
+      <Tooltip title="Contáctanos por WhatsApp" arrow>
+        <IconButton
+          component="a"
+          href="https://wa.me/50257029736?text=Hola%20Stem%20Care,%20quisiera%20m%C3%A1s%20informaci%C3%B3n"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          sx={{
+            position: "fixed",
+            left: { xs: 16, sm: 24, md: 32 },
+            top: "91%",
+            transform: "translateY(-50%)",
+            zIndex: 2,
+            width: { xs: 48, sm: 56 },
+            height: { xs: 48, sm: 56 },
+            color: "#fff",
+            bgcolor: "rgba(37, 211, 102, 0.9)",
+            border: "2px solid rgba(255,255,255,0.3)",
+            backdropFilter: "blur(8px)",
+            borderRadius: "50%",
+            transition: "all 0.3s ease-in-out",
+            boxShadow: "0 4px 20px rgba(37, 211, 102, 0.3)",
+            "&:hover": {
+              bgcolor: "rgba(37, 211, 102, 1)",
+              transform: "translateY(-50%) scale(1.1)",
+              boxShadow: "0 6px 25px rgba(37, 211, 102, 0.4)",
+            },
+          }}
+        >
+          <WhatsAppIcon sx={{ fontSize: { xs: 24, sm: 28 } }} />
+        </IconButton>
+      </Tooltip>
 
         <Footer />
         

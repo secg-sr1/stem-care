@@ -37,3 +37,4 @@ export const getLocalizedPath = (path, language = 'en') => {
   // Add language prefix for non-English paths
   return `/${language}${path}`;
 };
+

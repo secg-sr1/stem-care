@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Box, Button, Container, IconButton, Stack, Typography, Grid } from "@mui/material";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
+import { useNavigate } from "react-router-dom";
 // import cordBaby from "../assets/cord-baby.png"; // or "../../assets/cord-baby.jpg" based on your tree
 import IMG from "../assets/cord-baby.png"; 
 
@@ -8,6 +9,8 @@ const OVERLAY_COLOR = "#0e1a28";
 const OVERLAY_OPACITY = 0.58;
 
 export default function Home() {
+  const navigate = useNavigate();
+
   return (
     <>
       {/* HERO */}
@@ -38,6 +41,7 @@ export default function Home() {
           },
         }}
       >
+
         <Container
           maxWidth="lg"
           disableGutters
@@ -78,7 +82,7 @@ export default function Home() {
               sx={{ mt: { xs: 3, md: 5 }, flexWrap: "wrap" }}
             >
               <Button
-                href="/planes"
+                onClick={() => navigate("/planes")}
                 variant="outlined"
                 size="large"
                 fullWidth={{ xs: true, sm: false }}
@@ -102,6 +106,7 @@ export default function Home() {
               <Stack direction="row" spacing={1.25} alignItems="center">
                 <IconButton
                   aria-label="Reproducir podcast Alejandra Calgua"
+                  onClick={() => window.open("https://www.youtube.com/watch?app=desktop&v=yRuY5k6sIyg&fbclid=PAT01DUANeMCRleHRuA2FlbQIxMAABpx13RV59L8Lq5q6A6PUzsSnA9W7kJHzbWHc1hn9HhU_i0ZGEhqcgGLiAVbcE_aem_aH3VGSjqtittEkYSiam-iA", "_blank")}
                   sx={{
                     position: "relative",
                     width: { xs: 48, sm: 56 },
@@ -161,7 +166,7 @@ export default function Home() {
                 mb: { xs: 3, sm: 4 },
               }}
             >
-              Lorem Ipsum
+              Almacenamiento Local
             </Typography>
 
             <Typography
@@ -183,7 +188,7 @@ export default function Home() {
             </Typography>
 
             <Button
-              href="/programa-stem-care"
+              onClick={() => navigate("/programa-stem-care")}
               variant="contained"
               sx={{
                 px: { xs: 4, sm: 6 },
@@ -370,10 +375,12 @@ function SectionCrio() {
 
 
 function SectionServicios() {
+  const navigate = useNavigate();
+  
   const cards = [
-    { src: '/programa-stem-care.png', label: 'Programa Stem Care', alt: 'Programa Stem Care' },
-    { src: '/pulpa-diente-de-leche.png', label: 'Pulpa de Diente de Leche', alt: 'Pulpa de Diente de Leche' },
-    { src: '/pruebas-geneticas.png', label: 'Pruebas Genéticas Veritas', alt: 'Pruebas Genéticas Veritas' },
+    { src: '/programa-stem-care.png', label: 'Programa Stem Care', alt: 'Programa Stem Care', path: '/programa-stem-care' },
+    { src: '/pulpa-diente-de-leche.png', label: 'Pulpa de Diente de Leche', alt: 'Pulpa de Diente de Leche', path: '/programa-stem-care/pulpa' },
+    { src: '/pruebas-geneticas.png', label: 'Pruebas Genéticas Veritas', alt: 'Pruebas Genéticas Veritas', path: '/programa-stem-care/pruebas-geneticas' },
   ];
 
   return (
@@ -401,10 +408,11 @@ function SectionServicios() {
           </Grid>
 
           {/* cards */}
-          {cards.map(({ src, label, alt }) => (
+          {cards.map(({ src, label, alt, path }) => (
             <Grid key={label} size={{ xs: 12, sm: 6, md: 4 }}>
               <Box
                 component="figure"
+                onClick={() => navigate(path)}
                 sx={{
                   m: 0,
                   px: { xs: 2, md: 4 },
@@ -413,6 +421,11 @@ function SectionServicios() {
                   flexDirection: 'column',
                   alignItems: 'center',
                   gap: 2,
+                  cursor: 'pointer',
+                  transition: 'transform 0.2s ease-in-out',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                  },
                 }}
               >
                 {/* keep a consistent aspect ratio so all cards line up nicely */}
@@ -422,6 +435,11 @@ function SectionServicios() {
                     maxWidth: 420,                  // cap width on larger screens
                     aspectRatio: '11 / 9',         // consistent tile height; adjust to your art
                     overflow: 'hidden',
+                    borderRadius: 1,
+                    transition: 'box-shadow 0.2s ease-in-out',
+                    '&:hover': {
+                      boxShadow: '0 8px 25px rgba(0,0,0,0.3)',
+                    },
                   }}
                 >
                   <img
@@ -437,7 +455,14 @@ function SectionServicios() {
                 </Box>
 
                 <Box component="figcaption" sx={{ textAlign: 'center' }}>
-                  <Typography sx={{ color: '#fff', fontSize: { xs: 16, md: 18 } }}>
+                  <Typography sx={{ 
+                    color: '#fff', 
+                    fontSize: { xs: 16, md: 18 },
+                    transition: 'color 0.2s ease-in-out',
+                    '&:hover': {
+                      color: '#e0e0e0',
+                    },
+                  }}>
                     {label}
                   </Typography>
                 </Box>
@@ -448,7 +473,7 @@ function SectionServicios() {
           {/* CTA */}
           <Grid size={{ xs: 12 }} sx={{ display: 'flex', justifyContent: 'center', pt: { xs: 2, md: 2 } }}>
             <Button
-              href="/programa-stem-care"
+              onClick={() => navigate("/programa-stem-care")}
               variant="contained"
               sx={{
                 px: { xs: 4, sm: 6 },
@@ -554,7 +579,7 @@ function SectionDirectores() {
           {/* CTA */}
           <Grid size={{ xs: 12 }} sx={{ display: 'flex', justifyContent: 'center', pt: { xs: 2, md: 2 } }}>
             <Button
-              href="/programa-stem-care"
+              onClick={() => navigate("/programa-stem-care")}
               variant="contained"
               sx={{
                 px: { xs: 4, sm: 6 },
@@ -592,17 +617,18 @@ function SectionParagraph() {
                   color: '#fff',
                   fontFamily: 'Manrope, sans-serif',
                   fontWeight: 300,
-                  fontSize: { xs: 26, sm: 32, md: 40 },
+                  fontSize: { xs: 26, sm: 32, md: 38 },
                   lineHeight: { xs: 1.25, md: 1.2 },
                   letterSpacing: 0.2,
+                  textAlign: 'center',
                 }}
               >
-                “Lorem Ipsum is simply dummy text of the
-              printing and typesetting industry. Lorem Ipsum
-              has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer
-              took a galley of type and scrambled it to make a
-              type specimen book”
+                "La sangre del cordón umbilical representa una 
+              oportunidad única de preservar células madre 
+              que pueden salvar vidas. Cada familia que 
+              decide almacenar estas células está creando 
+              un tesoro biológico para el futuro de sus seres 
+              queridos."
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'center', pt: { xs: 4, md: 8 }, px: { xs: 2, md: 10 } }}>
@@ -617,7 +643,7 @@ function SectionParagraph() {
                   letterSpacing: 0.2,
                 }}
               >
-                ● Lorem Ipsum
+                ● Dra. Eliane Gluckman, Pionera en Trasplantes de Cordón Umbilical
               </Typography>
             </Box>
           </Grid>
