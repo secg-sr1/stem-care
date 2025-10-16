@@ -147,7 +147,7 @@ function Header() {
             alignItems: "center",
           }}
         >
-          <NavLinkBtn to="/acerca">Acerca de</NavLinkBtn>
+          <NavLinkBtn to="/programa-stem-care">Acerca de</NavLinkBtn>
           {/* <NavLinkBtn to="/programa-stem-care">Programa Stem Care</NavLinkBtn> */}
 
 
