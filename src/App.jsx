@@ -7,7 +7,7 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import {
-  BrowserRouter, Routes, Route, Link, useLocation, useNavigate
+  BrowserRouter, Routes, Route, Link, useLocation, useNavigate, Navigate
 } from "react-router-dom";
 
 import { LanguageProvider } from "./contexts/LanguageContext";
@@ -315,7 +315,7 @@ function Header() {
           </Stack>
           <Divider sx={{ borderColor: "rgba(255,255,255,0.12)" }} />
           <List>
-            <ListItemButton onClick={() => go("/acerca")}><ListItemText primary="Acerca de" /></ListItemButton>
+            <ListItemButton onClick={() => go("/programa-stem-care")}><ListItemText primary="Acerca de" /></ListItemButton>
             <ListItemButton onClick={() => go("/programa-stem-care")}><ListItemText primary="¿Por qué almacenar sangre del cordon de mi bebé?" /></ListItemButton>
             <ListItemButton onClick={() => go("/programa-stem-care/por-que-las-familias-eligen-stem-care")}><ListItemText primary="¿Por qué las familias eligen Stem Care?" /></ListItemButton>
             <ListItemButton onClick={() => go("/planes")}><ListItemText primary="Planes" /></ListItemButton>
@@ -390,6 +390,19 @@ export default function App() {
         <Route path="/acerca" element={<Acerca />} />
         <Route path="/programa-stem-care" element={<Programa />} />
         <Route path="/planes" element={<Planes />} />
+        
+        {/* Redirect routes for Google search results */}
+        <Route path="/planes-de-pago-guatemala" element={<Navigate to="/planes" replace />} />
+        <Route path="/planes-de-pago" element={<Navigate to="/planes" replace />} />
+        <Route path="/pricing" element={<Navigate to="/planes" replace />} />
+        <Route path="/precios" element={<Navigate to="/planes" replace />} />
+        <Route path="/tarifas" element={<Navigate to="/planes" replace />} />
+        
+        {/* Historia redirects */}
+        <Route path="/nuestra-historia" element={<Navigate to="/programa-stem-care" replace />} />
+        <Route path="/historia" element={<Navigate to="/programa-stem-care" replace />} />
+        <Route path="/about-us" element={<Navigate to="/programa-stem-care" replace />} />
+        
         <Route path="/yoamoamibebe-blog" element={<Blog />} />
         <Route path="/yoamoamibebe-blog/:slug" element={<BlogPost />} />
         <Route path="/contacto" element={<Contacto />} />
