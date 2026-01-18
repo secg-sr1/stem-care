@@ -60,6 +60,8 @@ export default function Contacto() {
   });
   const [errors, setErrors] = React.useState({});
   const [sent, setSent] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState("");
 
   const onChange = (e) => setValues(v => ({ ...v, [e.target.name]: e.target.value }));
 
@@ -76,18 +78,43 @@ export default function Contacto() {
     return e;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const eMap = validate();
     setErrors(eMap);
     if (Object.keys(eMap).length) return;
-    // TODO: send to backend
-    setSent(true);
-    setValues({
-      nombre: "", apellidos: "", email: "", telefono: "",
-      semana: "", ginecologo: "", telefonosContacto: "",
-      hospital: "", mensaje: "",
-    });
+
+    setLoading(true);
+    setErrorMessage("");
+    
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Error al enviar el mensaje");
+      }
+
+      // Success
+      setSent(true);
+      setValues({
+        nombre: "", apellidos: "", email: "", telefono: "",
+        semana: "", ginecologo: "", telefonosContacto: "",
+        hospital: "", mensaje: "",
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setErrorMessage(error.message || "Ocurrió un error. Por favor, intenta nuevamente.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -268,9 +295,21 @@ export default function Contacto() {
                     }}
                     />
 
+                    {errorMessage && (
+                      <Alert severity="error" sx={{ mt: 2 }} onClose={() => setErrorMessage("")}>
+                        {errorMessage}
+                      </Alert>
+                    )}
+
                     <Box sx={{ textAlign: { xs: "center", sm: "right" } }}>
-                    <Button type="submit" variant="contained" size="large" sx={{ mt: 1, fontWeight: 700, px: 4 }}>
-                        ENVIAR
+                    <Button 
+                      type="submit" 
+                      variant="contained" 
+                      size="large" 
+                      sx={{ mt: 1, fontWeight: 700, px: 4 }}
+                      disabled={loading}
+                    >
+                        {loading ? "ENVIANDO..." : "ENVIAR"}
                     </Button>
                     </Box>
                 </Stack>
