@@ -4,16 +4,7 @@ import { detectBrowserLanguage } from '../utils/languageUtils';
 export const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('en');
-
-  useEffect(() => {
-    // Detect browser language on first load
-    const detectedLang = detectBrowserLanguage();
-    setLanguage(detectedLang);
-    
-    // Store in localStorage for persistence
-    localStorage.setItem('preferred-language', detectedLang);
-  }, []);
+  const [language, setLanguage] = useState('es');
 
   const changeLanguage = (newLang) => {
     setLanguage(newLang);

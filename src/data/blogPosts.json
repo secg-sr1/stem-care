@@ -1,6 +1,81 @@
 {
   "posts": [
     {
+      "id": "guia-rapida-5-cosas-antes-parto",
+      "slug": "5-cosas-que-debes-saber-antes-del-parto",
+      "title": {
+        "en": "Quick Guide: 5 Things You Should Know Before Giving Birth",
+        "es": "Guía Rápida: 5 Cosas que Debes Saber Antes del Parto"
+      },
+      "excerpt": {
+        "en": "Preparing for the big day goes beyond packing your hospital bag. Here are the key points to help you experience this moment with complete confidence — including what you need to know about stem cell collection.",
+        "es": "Prepararte para el gran día va más allá de la maleta del hospital. Aquí te compartimos los puntos clave para que vivas este momento con total seguridad, incluyendo lo que debes saber sobre la recolección de células madre."
+      },
+      "content": {
+        "en": "<img src=\"/parto-01.png\" alt=\"Mother and newborn baby\" style=\"width:100%;border-radius:12px;margin-bottom:24px;\" /><h2>1. Prepare Ahead of Time</h2><p>Make sure your doctor knows you will be doing the <strong>stem cell collection</strong>. It is a simple process that integrates perfectly into any birth plan.</p><h2>2. Safe for Any Type of Birth</h2><p>Whether it is a vaginal delivery or a C-section, stem cell collection is possible and completely safe. The procedure adds no risks or pain for you or your baby, regardless of how you choose to bring your little one into the world.</p><h2>3. The Treasure of the Umbilical Cord</h2><p>Historically, the umbilical cord was discarded as medical waste. Today we know it is the richest source of stem cells. You have a <strong>once-in-a-lifetime opportunity</strong> to save stem cells from the umbilical cord: at the moment of birth. Once the cord is discarded, that source is lost forever.</p><h2>4. The Collection Kit</h2><p>Make sure to pack the <strong>Stem Cell Collection Kit in the bag you will take to the hospital</strong> on the day of your baby's birth.</p><p><strong>Remember:</strong> The kit must be kept at room temperature and always within sight so it does not get left at home on the day of delivery.</p><h2>5. The Backing of Experience</h2><p>Stem Care and your family become a team because on the day of delivery you will be focused on your baby. Trust in delegating your family's health — by choosing a bank with <strong>20 years of experience in Guatemala and El Salvador</strong>, you ensure that the logistical process is handled properly: from coordinating the collection at the hospital to definitive cryogenic storage.</p><p>Do you have your Collection Kit ready? If you don't have it yet or have technical questions, call or write to us at <strong>+502 5702 9736</strong>. In our 20th Anniversary, our mission is for you to focus only on meeting your baby — we take care of protecting their future.</p>",
+        "es": "<img src=\"/parto-01.png\" alt=\"Madre con bebé recién nacido\" style=\"width:100%;border-radius:12px;margin-bottom:24px;\" /><h2>1. Prepárate con tiempo</h2><p>Asegúrate de que tu médico sepa que realizarás la <strong>recolección de células madre</strong>. Es un proceso sencillo que se integra perfectamente en cualquier plan.</p><h2>2. Seguro en cualquier tipo de parto</h2><p>Ya sea un parto o una cesárea, la recolección de células madre es posible y totalmente segura. El procedimiento no añade riesgos ni dolor para ti o para tu bebé, sin importar cómo decidas traer a tu pequeño al mundo.</p><h2>3. El tesoro del cordón umbilical</h2><p>Históricamente, el cordón umbilical se descartaba como residuo médico. Hoy sabemos que es la fuente más rica de células madre. Tienes una <strong>única oportunidad en la vida</strong> para guardar células madre del cordón umbilical: al momento del nacimiento. Una vez que el cordón se descarta, esa fuente se pierde para siempre.</p><h2>4. El Kit de Recolección</h2><p>Asegúrate de colocar el <strong>Kit de Recolección de Células Madre en la maleta que te llevarás al hospital</strong> el día del nacimiento de tu bebé.</p><p><strong>Recuerda:</strong> El kit debe estar a temperatura ambiente y siempre a la vista para que no se quede en casa el día del parto.</p><h2>5. El respaldo de la trayectoria</h2><p>Stem Care y tu familia nos volvemos un equipo porque el día del parto estarás enfocada en tu bebé. Ten la confianza de delegar la salud de tu familia al elegir un banco con <strong>20 años de experiencia en Guatemala y El Salvador</strong>, te aseguras de que el proceso logístico sea adecuado: desde coordinación de la recolección en el hospital hasta el almacenamiento criogénico definitivo.</p><p>¿Tienes tu Kit de Recolección listo? Si aún no lo tienes o tienes dudas técnicas, llámanos o escríbenos al <strong>+502 5702 9736</strong>. En nuestro 20 Aniversario, nuestra misión es que tú solo te preocupes por conocer a tu bebé; nosotros nos encargamos de proteger su futuro.</p>"
+      },
+      "author": {
+        "name": {
+          "en": "Sofía Calgua Pinetta",
+          "es": "Sofía Calgua Pinetta"
+        },
+        "role": {
+          "en": "Stem Care Communications",
+          "es": "Comunicación Stem Care"
+        },
+        "avatar": "/images/authors/stem-care-team.jpg"
+      },
+      "publishedAt": "2026-04-15T10:00:00Z",
+      "updatedAt": "2026-04-15T10:00:00Z",
+      "featuredImage": {
+        "url": "/parto-00.png",
+        "alt": "Bebé recién nacido con cordón umbilical",
+        "caption": "Tienes una única oportunidad en la vida para guardar células madre del cordón umbilical de tu bebé"
+      },
+      "categories": [
+        {
+          "id": "pregnancy-newborn",
+          "name": {
+            "en": "Pregnancy & Newborn Care",
+            "es": "Embarazo y Cuidado Neonatal"
+          },
+          "slug": "pregnancy-newborn"
+        },
+        {
+          "id": "stem-cell-education",
+          "name": {
+            "en": "Stem Cell Education",
+            "es": "Educación en Células Madre"
+          },
+          "slug": "stem-cell-education"
+        }
+      ],
+      "tags": [
+        "parto",
+        "células madre",
+        "cordón umbilical",
+        "kit de recolección",
+        "cesárea",
+        "criopreservación",
+        "embarazo",
+        "recién nacido",
+        "stem care",
+        "guatemala"
+      ],
+      "readingTime": "3 min read",
+      "featured": true,
+      "status": "published",
+      "seo": {
+        "metaTitle": "5 Cosas que Debes Saber Antes del Parto | Stem Care Blog",
+        "metaDescription": "Prepárate para el nacimiento de tu bebé con esta guía rápida. Aprende todo sobre la recolección de células madre del cordón umbilical antes del parto.",
+        "keywords": ["células madre parto", "kit recolección cordón umbilical", "banco células madre guatemala", "stem care", "parto cesárea células madre", "cordón umbilical bebé"]
+      },
+      "relatedPosts": [
+        "teravida-ai-assistant-guide"
+      ]
+    },
+    {
       "id": "teravida-ai-assistant-guide",
       "slug": "what-is-the-teravida-ai-assistant",
       "title": {

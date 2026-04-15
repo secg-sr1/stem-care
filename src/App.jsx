@@ -461,7 +461,7 @@ export default function App() {
           aria-label="WhatsApp"
           sx={{
             position: "fixed",
-            left: { xs: 16, sm: 24, md: 32 },
+            right: { xs: 16, sm: 24, md: 32 },
             top: "91%",
             transform: "translateY(-50%)",
             zIndex: 2,
