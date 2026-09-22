@@ -1,0 +1,155 @@
+.stem-chat { --chat-ink: #253e3e; --chat-muted: #526865; font-family: Manrope, sans-serif; color: var(--chat-ink); position: relative; z-index: 1410; }
+.stem-chat button, .stem-chat textarea { font: inherit; }
+.stem-chat button { cursor: pointer; }
+.stem-chat button:disabled { cursor: default; opacity: .5; }
+.stem-chat button:focus-visible, .stem-chat textarea:focus-visible { outline: 2px solid #41756a; outline-offset: 4px; }
+.stem-chat-launcher { position: fixed; bottom: 38px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; padding: 17px 22px; border-radius: 40px; border: 1px solid #ffffff45; background: #253134c7; backdrop-filter: blur(18px); color: #fff; box-shadow: 0 8px 30px #10292826; white-space: nowrap; transition: background .2s, box-shadow .2s; }
+.stem-chat-launcher:hover { background: #253b3ded; box-shadow: 0 10px 35px #10292838; }
+.stem-chat-spark { font-size: 25px; line-height: 1; color: #d6eee2; }
+.stem-chat-panel { position: fixed; bottom: 112px; right: max(24px, calc((100vw - 1300px) / 2)); width: min(440px, calc(100vw - 32px)); height: min(650px, calc(100dvh - 145px)); display: flex; flex-direction: column; overflow: hidden; border: 1px solid #ffffffb3; border-radius: 26px; background: #f6faf3c4; backdrop-filter: blur(20px) saturate(125%); -webkit-backdrop-filter: blur(20px) saturate(125%); box-shadow: 0 24px 80px #132f342b, inset 0 1px #fff; opacity: 0; visibility: hidden; transform: translateY(18px) scale(.98); transform-origin: bottom right; transition: opacity .25s, transform .25s, visibility .25s; }
+.stem-chat-panel.is-open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+.stem-chat-header { display: flex; align-items: center; gap: 12px; padding: 19px 21px; border-bottom: 1px solid #486a5d1a; background: #ffffff35; }
+.stem-chat-header h2 { font-size: 17px; font-weight: 700; margin: 0; }
+.stem-chat-header .chat-ai-badge { font-size: 11px; background: #d9e9df; padding: 3px 5px; border-radius: 5px; margin-left: 3px; }
+.stem-chat-header p { font-size: 11px; margin: 4px 0 0; color: var(--chat-muted); }
+.stem-chat-brand { width: 56px; height: 56px; flex-shrink: 0; overflow: hidden; border-radius: 12px; mix-blend-mode: multiply; }
+.stem-chat-brand img { width: 100%; height: 100%; object-fit: contain; transform: scale(1.45); }
+.stem-chat-companion { display: flex; align-items: center; gap: 12px; padding: 3px 21px; flex-shrink: 0; border-bottom: 1px solid #486a5d12; }
+.stem-chat-cell-label { font-size: 12px; font-weight: 600; }
+.stem-chat-companion p { color: var(--chat-muted); font-size: 10px; margin: 5px 0; }
+.stem-chat-cell { width: 70px; height: 76px; flex-shrink: 0; border: 0; padding: 8px; border-radius: 50%; background: transparent; }
+.stem-cell-membrane { position: relative; display: block; width: 54px; height: 54px; border: 1px solid #fff9; border-radius: 47% 53% 55% 45%; background: radial-gradient(circle at 30% 25%, #ffffffba, #c5dbd878 48%, #98b1c687 80%); box-shadow: inset -4px -5px 10px #7786a640, inset 3px 2px 8px #fff9, 0 4px 16px #647d9424; animation: stem-cell-breathe 6s ease-in-out infinite; animation-play-state: paused; }
+.stem-chat-panel.is-open .stem-cell-membrane { animation-play-state: running; }
+.stem-cell-nucleus { position: absolute; width: 24px; height: 24px; left: 15px; top: 15px; border-radius: 48% 52% 44% 56%; background: radial-gradient(circle at 35% 30%, #d7cde5, #9893bf 65%, #777ba6); border: 1px solid #ffffff80; box-shadow: 0 0 12px #d1caec9c, inset 2px 2px 5px #ffffff90; transform: translate(var(--cell-x, 0px), var(--cell-y, 0px)); transition: transform .3s ease-out; }
+.stem-cell-membrane i { position: absolute; width: 5px; height: 7px; border-radius: 50%; background: #f7fffab0; box-shadow: inset 1px 1px 2px #7799a66b; top: 10px; left: 12px; }
+.stem-cell-membrane i:nth-of-type(2) { left: 38px; top: 24px; transform: rotate(45deg); }
+.stem-cell-membrane i:nth-of-type(3) { left: 13px; top: 37px; transform: rotate(-25deg); }
+.stem-chat-cell:hover .stem-cell-membrane, .stem-chat-cell:focus-visible .stem-cell-membrane { box-shadow: inset -4px -5px 10px #7786a640, inset 3px 2px 8px #fff9, 0 0 22px #8d94ba66; }
+.stem-chat-cell.is-thinking .stem-cell-membrane { animation-duration: 2.5s; }
+@keyframes stem-cell-breathe { 0%, 100% { transform: translateY(2px) scale(.96) rotate(-4deg); border-radius: 47% 53% 55% 45%; } 50% { transform: translateY(-2px) scale(1.04) rotate(4deg); border-radius: 54% 46% 47% 53%; } }
+.stem-chat-icon { margin-left: auto; display: grid; place-items: center; border: 0; background: transparent; color: #526865; width: 36px; height: 36px; border-radius: 50%; }
+.stem-chat-icon:hover { background: #dce7dc; }
+.stem-chat-history { min-height: 0; flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 24px 22px; scrollbar-width: thin; scrollbar-color: #b9ccc0 transparent; }
+.stem-chat-eyebrow { color: #587d6e; font-size: 10px; letter-spacing: 2px; font-weight: 700; }
+.stem-chat-welcome h3 { font-size: 26px; line-height: 1.25; font-weight: 500; letter-spacing: -.7px; margin: 12px 0; }
+.stem-chat-welcome > p { font-size: 14px; line-height: 1.8; color: var(--chat-muted); margin: 0 0 24px; }
+.stem-chat-suggestions { display: grid; gap: 9px; }
+.stem-chat-suggestions button { background: #ffffff6b; border: 1px solid #90ab983d; border-radius: 13px; color: var(--chat-ink); padding: 12px 14px; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 12px; line-height: 1.5; }
+.stem-chat-suggestions button:hover { background: #ffffffbf; }
+.stem-chat-message { font-size: 14px; line-height: 1.75; margin-bottom: 22px; overflow-wrap: anywhere; }
+.stem-chat-author { display: block; font-size: 10px; font-weight: 700; color: var(--chat-muted); margin-bottom: 6px; }
+.stem-chat-message p { margin: 0 0 10px; }
+.stem-chat-message p:last-child { margin-bottom: 0; }
+.stem-chat-message.user { background: #deebe2b3; border: 1px solid #bed2c333; border-radius: 16px 16px 4px 16px; padding: 12px 15px; margin-left: 32px; }
+.stem-chat-message a { color: #2b6959; }
+.stem-chat-message pre { overflow-x: auto; }
+.stem-chat-message table { display: block; overflow-x: auto; }
+.stem-chat-thinking { color: var(--chat-muted); }
+.stem-chat-footer { padding: 13px 17px 15px; border-top: 1px solid #486a5d1a; background: #ffffff4d; }
+.stem-chat-footer form { display: flex; align-items: flex-end; gap: 8px; padding: 10px; border: 1px solid #a4b9ab7a; border-radius: 17px; background: #ffffffa1; }
+.stem-chat-footer textarea { width: 100%; min-width: 0; resize: none; border: 0; background: transparent; color: var(--chat-ink); line-height: 1.5; font-size: 16px; padding: 4px; }
+.stem-chat-footer textarea:focus-visible { outline-offset: 0; border-radius: 5px; }
+.stem-chat-send { border: 0; border-radius: 12px; width: 38px; height: 38px; flex-shrink: 0; display: grid; place-items: center; background: #386253; color: white; }
+.stem-chat-send svg { width: 19px; }
+.stem-chat-footnote { margin-top: 10px; font-size: 9px; line-height: 1.6; color: var(--chat-muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 5px; }
+.stem-chat-footnote button { color: var(--chat-muted); font-size: 10px; padding: 0; background: none; border: 0; text-decoration: underline; }
+.stem-chat-demo { padding: 6px 18px; text-align: center; background: #efe8d6; color: #655c3c; font-size: 10px; }
+.stem-chat-error { font-size: 12px; color: #8b3e35; }
+.stem-chat .approval-card { padding: 15px; border: 1px solid #b6c8b9; border-radius: 14px; font-size: 12px; background: #fff9; margin: 10px 0; }
+.stem-chat .approval-card button, .stem-chat-message > button { padding: 8px 12px; margin: 5px 5px 0 0; border: 1px solid #8fa798; border-radius: 8px; background: #eef4ed; color: var(--chat-ink); }
+.stem-chat-loading { position: fixed; bottom: 112px; right: 24px; padding: 24px; background: #f6faf3ed; border-radius: 20px; }
+.stem-chat-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (max-width: 600px) {
+  .stem-chat-launcher { bottom: max(16px, env(safe-area-inset-bottom)); left: 16px; transform: none; max-width: calc(100% - 98px); padding: 15px 18px; font-size: 13px; gap: 9px; }
+  .stem-chat-panel { right: 12px; bottom: calc(84px + env(safe-area-inset-bottom)); width: calc(100% - 24px); height: min(650px, calc(100dvh - 105px - env(safe-area-inset-bottom))); border-radius: 22px; }
+  .stem-chat-header { padding: 14px 18px; }
+  .stem-chat-history { padding: 20px 18px; }
+  .stem-chat-welcome h3 { font-size: 24px; }
+  .stem-chat-launcher span { overflow: hidden; text-overflow: ellipsis; }
+}
+@media (prefers-reduced-motion: reduce) { .stem-chat-panel, .stem-chat-launcher, .stem-cell-nucleus { transition: none; } .stem-cell-membrane { animation: none; } }
+
+.stem-workspace{--chat-ink:#26313a;--chat-muted:#5b5868;display:grid;grid-template-columns:1fr 1.25fr;gap:7vw;padding:100px 7vw;background:#f0eff3;z-index:1;color:#26313a;scroll-margin-top:82px}.stem-workspace-intro h2{font-size:clamp(36px,4vw,58px);line-height:1.12;font-weight:400;letter-spacing:-.04em;margin:28px 0}.stem-workspace-intro p{font-size:15px;line-height:1.9;color:#5b5868;max-width:360px}.stem-workspace-intro a{display:inline-block;margin-top:25px;font-size:13px;color:#5b5868}.stem-workspace .stem-chat-panel{position:relative;inset:auto;transform:none;width:100%;height:700px;max-height:85svh;border-radius:4px;box-shadow:none;background:#f7f7f8;border:1px solid #9893bf44;backdrop-filter:none}.stem-workspace .stem-chat-companion{background:#f0eff3}.stem-workspace .stem-chat-message.user{background:#e8e6ee;border-color:#9893bf33}.stem-workspace .stem-chat-send{background:#5b5868}.stem-workspace .stem-chat-header .chat-ai-badge{background:#e8e6ee}.stem-workspace .stem-chat-suggestions button{border-color:#9893bf55;border-radius:4px}.stem-workspace .stem-chat-message a,.stem-workspace .stem-chat-eyebrow{color:#5b5868}.stem-workspace .stem-chat-footer form{border-color:#9893bf66}.stem-workspace .stem-chat-footer{background:#f7f7f8}@media(max-width:800px){.stem-workspace{grid-template-columns:1fr;padding:60px 7vw;gap:30px}.stem-workspace .stem-chat-panel{height:650px;max-height:90svh}.stem-workspace-intro h2{font-size:38px}}
+.stem-chat-schedule{flex-shrink:0;width:38px;height:38px;display:grid;place-items:center;border:0;border-radius:10px;background:transparent;color:#5b5868}.stem-chat-schedule:hover{background:#e8e6ee}.consultation-dialog.MuiPaper-root{background:#f7f7f8;color:#26313a;border-radius:8px;max-width:790px}.consultation-dialog .MuiDialogTitle-root{font-size:26px;font-weight:400;padding:28px 30px 20px}.consultation-dialog .MuiTabs-root{margin:0 28px;border-bottom:1px solid #9893bf55}.consultation-dialog .MuiTab-root,.consultation-dialog .MuiButton-root{color:#5b5868}.consultation-dialog .MuiTabs-indicator{background:#9893bf}.consultation-dialog .MuiDialogContent-root{padding:24px 30px}.consultation-dialog h3{text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:#5b5868;margin:20px 0 14px}.consultation-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.consultation-extra{margin-top:20px}.consultation-dialog .MuiFilledInput-root{background:#e8edf680;border-radius:8px 8px 0 0}.consultation-dialog .MuiButton-contained{background:#5b5868;color:white}.consultation-dialog .MuiDialogActions-root{padding:16px 30px}.consultation-note{font-size:11px;line-height:1.6;color:#5b5868}.consultation-dialog .MuiInputLabel-root.Mui-focused{color:#5b5868}.consultation-dialog .MuiFilledInput-root:after{border-color:#9893bf}@media(max-width:600px){.consultation-grid{grid-template-columns:1fr}.consultation-dialog.MuiPaper-root{margin:12px;width:calc(100% - 24px);max-height:calc(100% - 24px)}.consultation-dialog .MuiDialogTitle-root{padding:20px}.consultation-dialog .MuiDialogContent-root{padding:16px 20px}.consultation-dialog .MuiTabs-root{margin:0 12px}.consultation-dialog .MuiTab-root{min-width:145px;font-size:11px}}
+.consultation-dialog .MuiTab-root.Mui-selected,.stem-pricing .MuiTab-root.Mui-selected{color:#5b5868}@media(max-width:600px){.consultation-dialog .MuiTab-root{min-width:0;font-size:10px;padding:10px 4px}}
+.stem-chat-slot{min-width:0}.stem-workspace.is-floating{z-index:1200}.stem-workspace.is-floating .stem-chat-slot{position:fixed;right:24px;top:100px;bottom:88px;width:min(440px,calc(100vw - 48px));z-index:1200}.stem-workspace.is-floating .stem-chat-panel{height:100%;max-height:none;background:rgba(247,247,248,.86);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid #ffffff88;border-radius:22px;box-shadow:0 24px 80px #0e1a2833}.stem-workspace.is-floating .stem-chat-header,.stem-workspace.is-floating .stem-chat-companion,.stem-workspace.is-floating .stem-chat-footer{background:transparent}.stem-workspace.is-floating .stem-chat-header{padding:14px 18px}.stem-workspace.is-floating .stem-chat-companion{padding:4px 18px}.stem-workspace.is-floating .stem-chat-history{padding:16px 20px}.stem-chat-reading{padding:8px 20px;color:#5b5868;font-size:10px;border-bottom:1px solid #9893bf33;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stem-chat-docked-note{align-self:center;font-size:15px;color:#5b5868;line-height:1.8}.stem-chat-docked-note button{display:block;margin-top:16px;padding:10px 0;background:none;border:0;color:#5b5868;text-decoration:underline}.stem-workspace.is-floating .stem-chat-cell{scale:1.1}.stem-workspace.is-floating .stem-chat-footer textarea{background:transparent}
+@media(max-width:800px){.stem-workspace.is-floating .stem-chat-slot{top:auto;bottom:84px;right:12px;width:calc(100vw - 24px);height:min(620px,72dvh)}.stem-workspace.is-floating .stem-chat-panel{background:rgba(247,247,248,.82);backdrop-filter:blur(18px);border-radius:22px}.stem-workspace.is-floating .stem-chat-history{padding:12px 16px}.stem-workspace.is-floating .stem-chat-header{padding:10px 14px}.stem-workspace.is-floating .stem-chat-companion{padding:0 14px}.stem-workspace.is-floating .stem-chat-brand{width:38px;height:38px}.stem-workspace.is-floating .stem-chat-footer{padding:10px 12px}.stem-workspace.is-floating .stem-chat-reading{padding:6px 16px}}
+
+/* Reserve a separate lower corner for WhatsApp, independent of viewport height. */
+.stem-workspace.is-floating .stem-chat-slot{bottom:calc(96px + env(safe-area-inset-bottom));top:95px}
+.stem-chat-levels{border:0;margin:0;padding:8px 18px 10px;display:flex;gap:6px;flex-shrink:0}
+.stem-chat-levels legend{font-size:10px;color:#5b5868;padding-top:8px}
+.stem-chat-levels label{flex:1;position:relative;cursor:pointer}
+.stem-chat-levels input{position:absolute;opacity:0;width:1px;height:1px}
+.stem-chat-levels span{display:block;text-align:center;padding:7px 3px;border:1px solid #9893bf66;border-radius:20px;font-size:11px;background:#ffffff60}
+.stem-chat-levels input:checked+span{background:#5b5868;color:white;border-color:#5b5868}
+.stem-chat-levels input:focus-visible+span{outline:2px solid #9893bf;outline-offset:2px}
+.stem-chat-levels:disabled{opacity:.65}
+.stem-chat-footer{flex-shrink:0}
+.stem-workspace .stem-chat-suggestions{gap:5px;margin-bottom:10px}
+.stem-workspace .stem-chat-suggestions button{background:#eeecf5e8;color:#393546;border-color:#9893bf88;border-radius:9px;padding:7px 11px;font-size:12px;line-height:1.35;min-height:32px;font-weight:500}
+.stem-workspace .stem-chat-suggestions button:hover:not(:disabled){background:#ded9ed;border-color:#77729d}
+.stem-chat-suggestions button:disabled{opacity:.65}
+.suggestions-label{font-size:10px;color:#5b5868;font-weight:600;margin-bottom:2px}
+.stem-workspace.is-floating .stem-chat-header{padding:10px 17px}
+.stem-workspace.is-floating .stem-chat-companion{padding:0 17px}
+.stem-workspace.is-floating .stem-chat-cell{height:44px;width:44px;padding:0;scale:.7;transform-origin:left center;margin-right:-10px}
+.stem-workspace.is-floating .stem-chat-companion p{display:none}
+.stem-workspace.is-floating .stem-chat-history{padding:14px 18px}
+@media(max-width:800px){.stem-workspace.is-floating .stem-chat-slot{top:auto;bottom:calc(88px + env(safe-area-inset-bottom));height:min(680px,calc(100dvh - 112px - env(safe-area-inset-bottom)))}.stem-workspace.is-floating .stem-chat-panel{background:#f7f7f8d6}.stem-workspace.is-floating .stem-chat-brand{width:35px;height:35px}.stem-workspace.is-floating .stem-chat-reading{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stem-workspace.is-floating .stem-chat-companion{display:none}.stem-chat-footer{padding:10px 13px}.stem-chat-footer textarea{font-size:16px}.stem-workspace.is-floating .stem-chat-welcome h3{font-size:21px}}
+@media(max-height:620px){.stem-workspace.is-floating .stem-chat-slot{top:10px}.stem-workspace.is-floating .stem-chat-companion,.stem-workspace.is-floating .stem-chat-reading{display:none}.stem-workspace.is-floating .stem-chat-header{padding:5px 12px}.stem-workspace.is-floating .stem-chat-brand{width:28px;height:28px}}
+
+.stem-workspace.is-floating .stem-chat-companion{display:none}
+.stem-workspace.is-floating .stem-chat-brand{width:32px;height:32px}
+.stem-workspace.is-floating .stem-chat-header p{display:none}
+.stem-workspace.is-floating .stem-chat-reading{flex-shrink:0;padding:5px 18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stem-workspace.is-floating .stem-chat-footer textarea{height:32px}
+.stem-workspace.is-floating .stem-chat-footer form{align-items:center;padding:6px}
+.stem-workspace.is-floating .stem-chat-history{min-height:80px}
+.stem-chat-header,.stem-chat-demo,.stem-chat-levels{flex-shrink:0}
+
+@media(max-width:800px){.stem-workspace.is-floating .stem-chat-slot{width:calc(100% - 24px);right:12px}}
+
+/* Compact AI exploration: prioritize the conversation. */
+.stem-workspace.is-floating .stem-chat-slot{width:min(520px,calc(100% - 48px));top:100px;bottom:96px}
+.stem-workspace.is-floating .stem-chat-panel{border-radius:24px;background:#f7f7f8ed}
+.stem-workspace .stem-chat-suggestions{display:block;margin-bottom:9px}
+.suggestions-label{display:block;margin-bottom:6px}
+.suggestion-chips{display:flex;gap:7px;overflow-x:auto;padding:2px 1px 7px;scrollbar-width:thin;scrollbar-color:#9893bf66 transparent;overscroll-behavior-x:contain}
+.stem-workspace .suggestion-chips button{flex:0 0 auto;white-space:nowrap;border-radius:24px;min-height:32px;padding:7px 12px;font-size:11px}
+.stem-chat-history{scroll-behavior:smooth}
+.stem-workspace.is-floating .stem-chat-history{flex:1 1 0;min-height:0;padding:20px 22px}
+.stem-workspace.is-floating .stem-chat-levels{padding-top:4px;padding-bottom:7px}
+.stem-workspace.is-floating .stem-chat-reading{display:none}
+.stem-workspace.is-floating .stem-chat-header{padding:10px 18px}
+.stem-chat-message{font-size:15px;line-height:1.75}
+@media(max-width:800px){.stem-workspace.is-floating .stem-chat-slot{top:auto;right:12px;width:calc(100% - 24px);bottom:88px;height:min(720px,calc(100dvh - 112px))}.stem-workspace.is-floating .stem-chat-panel{background:#f7f7f8e8}.stem-workspace.is-floating .stem-chat-history{padding:16px}.stem-workspace.is-floating .stem-chat-header{padding:9px 14px}}
+@media(prefers-reduced-motion:reduce){.stem-chat-history{scroll-behavior:auto}}
+
+.stem-chat-history,.suggestion-chips{scrollbar-width:none}.stem-chat-history::-webkit-scrollbar,.suggestion-chips::-webkit-scrollbar{display:none;width:0;height:0}.stem-chat-history::-webkit-scrollbar-button,.suggestion-chips::-webkit-scrollbar-button{display:none}
+.stem-workspace .stem-chat-companion{display:none}.stem-workspace .stem-chat-header{padding:12px 18px}.stem-workspace .stem-chat-brand{width:38px;height:38px}.stem-workspace .stem-chat-panel{border-radius:24px}.stem-chat-footnote{font-size:9px;line-height:1.55}.stem-chat-footer form:focus-within{border-color:#77729d;box-shadow:0 0 0 3px #9893bf1f}.stem-chat-message.user{margin-left:18px}.stem-workspace .stem-chat-history{min-height:0;flex:1 1 0}
+
+/* AI mode is an adjacent workspace; the site remains usable beside it. */
+@media(min-width:900px){
+ body.stem-ai-mode .stem-page-content{margin-right:46vw}
+ body.stem-ai-mode .stem-workspace.is-floating .stem-chat-slot{top:82px;right:0;bottom:0;width:46vw}
+ body.stem-ai-mode .stem-workspace.is-floating .stem-chat-panel{border-radius:0;border:0;border-left:1px solid #9893bf44;box-shadow:none;background:#f7f7f8;backdrop-filter:none}
+ body.stem-ai-mode .bio-hero{padding-left:4vw;padding-right:4vw;min-height:850px;height:auto;padding-bottom:340px}
+ body.stem-ai-mode .bio-hero-copy{width:100%}body.stem-ai-mode .bio-hero h1{font-size:clamp(30px,3vw,46px)}
+ body.stem-ai-mode .bio-environment{width:100%;height:310px;top:auto;bottom:25px;right:0}body.stem-ai-mode .bio-environment>.bio-cell{width:210px}
+ body.stem-ai-mode .family-story,body.stem-ai-mode .services-scroll{grid-template-columns:1fr;gap:25px}body.stem-ai-mode .family-story-stage,body.stem-ai-mode .services-stage{display:none}body.stem-ai-mode .family-story-mobile,body.stem-ai-mode .services-mobile-image{display:block;width:100%;max-height:300px;object-fit:contain}body.stem-ai-mode .family-story-steps article,body.stem-ai-mode .services-steps article{min-height:0;padding:25px 0}body.stem-ai-mode .enrollment ol{grid-template-columns:1fr}body.stem-ai-mode .enrollment-header{display:block}
+ body.stem-ai-mode a[aria-label="WhatsApp"]{right:calc(46vw + 18px)}
+}
+.stem-workspace.is-floating .stem-chat-header p{display:block}.stem-workspace.is-floating .stem-chat-history{padding:24px;line-height:1.8}.stem-workspace.is-floating .stem-chat-header{padding:16px 22px}.stem-workspace.is-floating .stem-chat-footer{padding:14px 22px 18px}.stem-workspace.is-floating .stem-chat-levels{padding-left:22px;padding-right:22px}.stem-workspace.is-floating .stem-chat-panel{transition:opacity .2s,visibility .2s}.stem-workspace.is-floating .stem-chat-welcome{padding:20px 0}
+@media(max-width:899px){body.stem-ai-mode .stem-workspace.is-floating .stem-chat-slot{top:76px;bottom:86px;right:12px;width:calc(100% - 24px);height:auto}body.stem-ai-mode .stem-workspace.is-floating .stem-chat-panel{background:#f7f7f8f5;border-radius:18px}.stem-workspace.is-floating .stem-chat-history{padding:18px}.stem-workspace.is-floating .stem-chat-footer{padding:10px 14px}}
+
+/* One focus boundary for the composer; keyboard focus remains visible on its wrapper. */
+.stem-chat .stem-chat-footer textarea:focus-visible{outline:none;box-shadow:none}
+.stem-chat-footer form:focus-within{outline:2px solid #9893bf;outline-offset:2px;box-shadow:none}
+.stem-page-content{transition:margin-right .45s cubic-bezier(.22,.68,.2,1)}
+.stem-workspace.is-floating .stem-chat-slot{animation:stem-ai-enter .4s cubic-bezier(.22,.68,.2,1) both}
+@keyframes stem-ai-enter{from{opacity:0;translate:24px 0}to{opacity:1;translate:0 0}}
+@media(prefers-reduced-motion:reduce){.stem-page-content{transition:none}.stem-workspace.is-floating .stem-chat-slot{animation:none}}
+
+.stem-chat-footer form:focus-within{outline:none;border-color:#77729d;box-shadow:0 0 0 1px #77729d}
+

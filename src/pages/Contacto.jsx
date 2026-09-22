@@ -1,8 +1,9 @@
+import { GenomeTypography as Typography } from '../components/GenomeHeading.jsx';
 import React from "react";
 import {
-  Box, Container, Card, CardContent, Typography, Grid,
+  Box, Container, Card, CardContent,  Grid,
   TextField, MenuItem, InputAdornment, Button, Snackbar, Alert, Stack
-} from "@mui/material";
+} from '@mui/material';
 import PersonRounded from "@mui/icons-material/PersonRounded";
 import BadgeRounded from "@mui/icons-material/BadgeRounded";
 import EmailRounded from "@mui/icons-material/EmailRounded";

@@ -1,3 +1,4 @@
+import { GenomeTypography as Typography } from '../components/GenomeHeading.jsx';
 // PruebasGen.jsx
 import React from "react";
 import {
@@ -5,7 +6,7 @@ import {
   Container,
   Card,
   CardContent,
-  Typography,
+  
   Divider,
   List,
   ListItem,
@@ -15,7 +16,7 @@ import {
   Button,
   Stack,
   Chip,
-} from "@mui/material";
+} from '@mui/material';
 
 // Icons (kept close to your style)
 import ScienceRounded from "@mui/icons-material/ScienceRounded";
@@ -141,7 +142,7 @@ export default function PruebasGen({
         </Card>
 
         {/* myGenome */}
-        <Card sx={{ ...CARD_SX, mb: 3 }}>
+        <Card id="myGenome" sx={{ ...CARD_SX, mb: 3 }}>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
             <SectionHeader icon={<ScienceRounded sx={{ color: "#5b5868" }} />} text="myGenome (WGS 30x)" />
             <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>
@@ -176,7 +177,7 @@ export default function PruebasGen({
         </Card>
 
         {/* myCancerRisk */}
-        <Card sx={{ ...CARD_SX, mb: 3 }}>
+        <Card id="myCancerRisk" sx={{ ...CARD_SX, mb: 3 }}>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
             <SectionHeader icon={<BiotechRounded sx={{ color: "#5b5868" }} />} text="myCancerRisk (WES 40 genes)" />
             <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>
@@ -209,7 +210,7 @@ export default function PruebasGen({
         </Card>
 
         {/* myHealthScore */}
-        <Card sx={{ ...CARD_SX, mb: 3 }}>
+        <Card id="myHealthScore" sx={{ ...CARD_SX, mb: 3 }}>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
             <SectionHeader icon={<LocalHospitalRounded sx={{ color: "#5b5868" }} />} text="myHealthScore (Riesgo Poligénico)" />
             <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>
@@ -242,7 +243,7 @@ export default function PruebasGen({
         </Card>
 
         {/* myPrenatal */}
-        <Card sx={{ ...CARD_SX, mb: 3 }}>
+        <Card id="myPrenatal" sx={{ ...CARD_SX, mb: 3 }}>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
             <SectionHeader icon={<PregnantWomanRounded sx={{ color: "#5b5868" }} />} text="myPrenatal (NIPT GenomeScreen)" />
             <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>

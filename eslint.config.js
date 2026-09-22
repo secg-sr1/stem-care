@@ -26,4 +26,8 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+  {
+    files: ['api/agents/**/*.js', 'api/session.js', 'lib/**/*.mjs', 'scripts/**/*.mjs', 'tests/**/*.mjs'],
+    languageOptions: { ecmaVersion: 'latest', globals: globals.node },
+  },
 ])

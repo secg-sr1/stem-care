@@ -1,3 +1,4 @@
+import GenomeHeading from '../components/GenomeHeading.jsx';
 
 
 
@@ -7,7 +8,7 @@ export default function Acerca() {
 
     return <>
     
-        <h1>Acerca</h1>
+        <GenomeHeading as="h1">Acerca</GenomeHeading>
     
     </>
 

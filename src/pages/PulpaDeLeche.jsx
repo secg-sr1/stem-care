@@ -1,17 +1,18 @@
+import { GenomeTypography as Typography } from '../components/GenomeHeading.jsx';
 import React from "react";
 import {
   Box,
   Container,
   Card,
   CardContent,
-  Typography,
+  
   Divider,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
   Grid,
-} from "@mui/material";
+} from '@mui/material';
 
 // Icons
 import Dentistry from "@mui/icons-material/EmojiNature";             // used as a tooth-ish pictogram

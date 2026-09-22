@@ -1,13 +1,14 @@
+import { GenomeTypography as Typography } from '../components/GenomeHeading.jsx';
 import React from "react";
 import {
   Stack,
   Container,
   Box,
-  Typography,
+  
   Link as MLink,
   IconButton,
   Tooltip,
-} from "@mui/material";
+} from '@mui/material';
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";

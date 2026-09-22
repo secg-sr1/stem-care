@@ -1,8 +1,9 @@
+import { GenomeTypography as Typography } from '../components/GenomeHeading.jsx';
 import React, { useState, useEffect } from 'react';
 import {
   Box,
   Container,
-  Typography,
+  
   Card,
   CardContent,
   Avatar,

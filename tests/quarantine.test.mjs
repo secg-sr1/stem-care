@@ -1,0 +1,20 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+process.env.NODE_ENV='test';process.env.STEMCARE_SUPABASE_QUARANTINE='true';process.env.LOCAL_SIMULATION='false';process.env.SESSION_SECRET='test-only-secret-with-at-least-32-characters';delete process.env.VERCEL;
+const {quarantine,localSessions,activeLocalSession}=await import('../lib/http/quarantine.mjs');
+const {getSession,deleteSession}=await import('../lib/http/session.mjs');
+const {saveMessage,loadHistory}=await import('../lib/agent/memory.mjs');
+const {limitRequest}=await import('../lib/http/security.mjs');
+test('quarantine retains isolated bounded memory, signed ownership, deletion, expiry and request limits',async()=>{
+ let cookie;const res={setHeader:(k,v)=>{cookie=v}};const req={headers:{},socket:{remoteAddress:'quarantine-test'}};
+ const a=await getSession(req,res,true);const owner={...req,headers:{cookie:cookie.split(';')[0]}};
+ const b=await getSession(req,res,true);assert.notEqual(a.id,b.id);
+ for(let i=0;i<12;i++) await saveMessage(a.id,'user','message '+i);
+ assert.equal((await loadHistory(a.id)).length,8);assert.equal((await loadHistory(b.id)).length,0);
+ assert.equal((await getSession(owner,res)).id,a.id);
+ await assert.rejects(getSession({...req,headers:{cookie:'stemcare_session=bad'}},res),{status:401});
+ await deleteSession(owner,res);assert.equal(localSessions.has(a.id),false);
+ localSessions.get(b.id).created_at=new Date(Date.now()-86400001).toISOString();assert.equal(activeLocalSession(b.id),null);
+ await limitRequest(req,'test',1);await assert.rejects(limitRequest(req,'test',1),{status:429});
+ process.env.NODE_ENV='production';assert.equal(quarantine(),false);process.env.NODE_ENV='test';process.env.VERCEL='1';assert.equal(quarantine(),false);delete process.env.VERCEL;
+});

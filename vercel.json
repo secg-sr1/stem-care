@@ -1,4 +1,7 @@
 {
+  "functions": {
+    "api/agents/concierge.js": { "maxDuration": 120 }
+  },
   "rewrites": [
     {
       "source": "/(.*)",

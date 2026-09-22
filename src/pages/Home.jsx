@@ -1,9 +1,15 @@
+import { GenomeTypography as Typography } from '../components/GenomeHeading.jsx';
 import * as React from "react";
-import { Box, Button, Container, IconButton, Stack, Typography, Grid } from "@mui/material";
+import { Box, Button, Container, IconButton, Stack,  Grid } from '@mui/material';
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import { useNavigate } from "react-router-dom";
 // import cordBaby from "../assets/cord-baby.png"; // or "../../assets/cord-baby.jpg" based on your tree
+import EnrollmentTimeline from '../components/EnrollmentTimeline.jsx';
+import VideoCard from "../components/VideoCard.jsx";
+import TypeText from "../components/TypeText.jsx";
 import IMG from "../assets/cord-baby.png"; 
+
+import { BiologicalHero, BiologicalJourney } from "../components/Biology.jsx";
 
 const OVERLAY_COLOR = "#0e1a28";
 const OVERLAY_OPACITY = 0.58;
@@ -13,144 +19,7 @@ export default function Home() {
 
   return (
     <>
-      {/* HERO */}
-      <Box
-        sx={{
-          position: "relative",
-          minHeight: "100vh",
-          pt: { xs: "64px", md: "82px" },      // appbar height
-          backgroundImage: `url(/hero.png)`,    // put your image in /public/hero.jpg
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          "::before": {
-            content: '""',
-            position: "absolute",
-            inset: 0,
-            background: OVERLAY_COLOR,
-            mixBlendMode: "screen",
-            opacity: OVERLAY_OPACITY,
-            pointerEvents: "none",
-          },
-          "::after": {
-            content: '""',
-            position: "absolute",
-            inset: 0,
-            background:
-              "radial-gradient(120% 90% at 60% 45%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.35) 100%)",
-            pointerEvents: "none",
-          },
-        }}
-      >
-
-        <Container
-          maxWidth="lg"
-          disableGutters
-          sx={{
-            position: "relative",
-            zIndex: 1,
-            minHeight: { xs: "calc(100vh - 64px)", md: "calc(100vh - 82px)" },
-            display: "grid",
-            placeItems: "center",
-            pb: { xs: 6, md: 10 },
-          }}
-        >
-          <Box sx={{ textAlign: "center", px: { xs: 2, sm: 3, md: 0 } }}>
-            <Typography
-              sx={{
-                color: "#e8edf6",
-                fontFamily: "Manrope, sans-serif",
-                fontSize: { xs: 28, sm: 34, md: 44, lg: 56 },
-                lineHeight: { xs: 1.25, md: 1.15 },
-                fontWeight: 300,
-                letterSpacing: 0.2,
-                maxWidth: { xs: 680, md: 920 },
-                mx: "auto",
-              }}
-            >
-              El Primer y Único Banco Privado de Células
-              <br />
-              Madre de Cordón Umbilical en Guatemala
-              <br />
-              desde el año 2006.
-            </Typography>
-
-            <Stack
-              direction={{ xs: "column", sm: "row" }}
-              spacing={{ xs: 2, sm: 3 }}
-              alignItems="center"
-              justifyContent="center"
-              sx={{ mt: { xs: 3, md: 5 }, flexWrap: "wrap" }}
-            >
-              <Button
-                onClick={() => navigate("/planes")}
-                variant="outlined"
-                size="large"
-                fullWidth={{ xs: true, sm: false }}
-                sx={{
-                  borderColor: "rgba(255,255,255,0.55)",
-                  color: "#fff",
-                  borderRadius: { xs: 1.5, sm: 2 },
-                  px: { xs: 4, sm: 6 },
-                  py: 1.6,
-                  fontWeight: 700,
-                  backdropFilter: "blur(2px)",
-                  "&:hover": {
-                    borderColor: "#fff",
-                    backgroundColor: "rgba(255,255,255,0.06)",
-                  },
-                }}
-              >
-                planes
-              </Button>
-
-              <Stack direction="row" spacing={1.25} alignItems="center">
-                <IconButton
-                  aria-label="Reproducir podcast Alejandra Calgua"
-                  onClick={() => window.open("https://www.youtube.com/watch?app=desktop&v=yRuY5k6sIyg&fbclid=PAT01DUANeMCRleHRuA2FlbQIxMAABpx13RV59L8Lq5q6A6PUzsSnA9W7kJHzbWHc1hn9HhU_i0ZGEhqcgGLiAVbcE_aem_aH3VGSjqtittEkYSiam-iA", "_blank")}
-                  sx={{
-                    position: "relative",
-                    width: { xs: 48, sm: 56 },
-                    height: { xs: 48, sm: 56 },
-                    borderRadius: "50%",
-                    backgroundColor: "#fff",
-                    color: "#0e1a28",
-                    boxShadow: "0 2px 10px rgba(0,0,0,0.25)",
-                    "&:hover": { backgroundColor: "#f1f1f1" },
-                    "&::before": {
-                      content: '""',
-                      position: "absolute",
-                      inset: { xs: -5, sm: -8 },
-                      borderRadius: "50%",
-                      border: "2px solid rgba(255,255,255,0.55)",
-                      opacity: 0,
-                      animation: "pulse 2.2s ease-out infinite",
-                    },
-                    "&:hover::before, &:focus-visible::before": {
-                      animationPlayState: "paused",
-                    },
-                    "@media (prefers-reduced-motion: reduce)": {
-                      "&::before": { animation: "none" },
-                    },
-                    "@keyframes pulse": {
-                      "0%": { transform: "scale(0.9)", opacity: 0.7 },
-                      "70%": { transform: "scale(1.25)", opacity: 0 },
-                      "100%": { opacity: 0 },
-                    },
-                  }}
-                >
-                  <PlayArrowRoundedIcon sx={{ fontSize: { xs: 28, sm: 32 } }} />
-                </IconButton>
-                <Typography sx={{ color: "#e8edf6", fontWeight: 600, fontSize: { xs: 15, sm: 16 } }}>
-                  Podcast Alejandra Calgua
-                </Typography>
-              </Stack>
-            </Stack>
-
-            {/* Optional "scroll down" link */}
-            {/* <Button href="#intro" sx={{ mt: 3, color: "#e8edf6", textTransform: "none" }}>↓ Más información</Button> */}
-          </Box>
-        </Container>
-      </Box>
+      <BiologicalHero />
 
       {/* SECTION BELOW HERO */}
       <section id="intro">
@@ -189,7 +58,7 @@ export default function Home() {
 
             <Button
               onClick={() => navigate("/programa-stem-care")}
-              variant="contained"
+              variant="contained" className="stem-editorial-cta"
               sx={{
                 px: { xs: 4, sm: 6 },
                 py: 1.5,
@@ -201,13 +70,13 @@ export default function Home() {
             >
               Programa Stem Care
             </Button>
+            <div className="program-brochures"><a href="/Programa-Stem-Care-2026.pdf" download>Descargar folleto - Programa Stem Care <span aria-hidden="true">↓</span></a><a href="/Stem-Care-Aplicaciones-2026.pdf" download>Descargar folleto - Aplicaciones Células Madre <span aria-hidden="true">↓</span></a></div>
           </Container>
         </Box>
       </section>
 
-      <SectionCordBlood />
-
-      <SectionCrio />
+      <BiologicalJourney />
+      <FamilyStory />
 
       <SectionServicios />
 
@@ -215,6 +84,7 @@ export default function Home() {
 
       <SectionParagraph />
 
+      <EnrollmentTimeline />
       <SectionVideos />
 
     </>
@@ -225,284 +95,56 @@ export default function Home() {
 
 
 
-function SectionCordBlood() {
-  return (
-    <Box component="section" sx={{ bgcolor: '#ffffffff', color: '#26313a', py: { xs: 6, md: 10 } }}>
-      <Grid container spacing={{ xs: 2, md: 4 }} alignItems="center">
-        {/* LEFT: image */}
-        <Grid size={{ xs: 12, md: 6 }}>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: { xs: 'center', md: 'flex-start' },
-              px: { xs: 2, md: 10 },
-            }}
-          >
-            <img
-              src="/cord-baby.png"
-              alt="Cordón umbilical"
-              style={{
-                width: '100%',         // fluid on small screens
-                height: 'auto',
-                maxWidth: 520,         // cap on larger screens (adjust to taste)
-                borderRadius: 0,
-                display: 'block',
-                objectFit: 'cover',
-              }}
-            />
-          </Box>
-        </Grid>
-
-        {/* RIGHT: text */}
-        <Grid size={{ xs: 12, md: 6 }}>
-          <Box sx={{ pt: { xs: 2, md: 8 }, px: { xs: 2, md: 0 } }}>
-            <Typography
-              component="h2"
-              sx={{
-                color: '#26313a',
-                fontFamily: 'Manrope, sans-serif',
-                fontWeight: 600,
-                fontSize: { xs: 26, sm: 32, md: 40 },
-                lineHeight: { xs: 1.25, md: 1.2 },
-                letterSpacing: 0.2,
-                mb: { xs: 2.5, md: 3 },
-              }}
-            >
-              Las células madre de cordón umbilical de tu bebé
-              <br />
-              disponibles inmediatamente.
-            </Typography>
-
-            <Typography
-              sx={{
-                color: '#26313a',
-                fontFamily: 'Manrope, sans-serif',
-                fontWeight: 300,
-                fontSize: { xs: 16, sm: 18, md: 20 },
-                lineHeight: 1.7,
-                opacity: 0.9,
-                maxWidth: 620,
-              }}
-            >
-              Almacenar las células madre de sangre de cordón umbilical es una
-              decisión importante, hacerlo con Stem Care es una decisión
-              inteligente.
-            </Typography>
-          </Box>
-        </Grid>
-      </Grid>
-    </Box>
-  );
+function FamilyStory() {
+  const [active, setActive] = React.useState(0);
+  const host = React.useRef(null);
+  const stories = [{"title":"Las células madre de cordón umbilical de tu bebé disponibles inmediatamente.","text":"Almacenar las células madre de sangre de cordón umbilical es una decisión importante, hacerlo con Stem Care es una decisión inteligente.","src":"/cord-baby.png"},{"title":"Somos expertos y líderes de opinión en nuestro campo.","text":"Nuestro servicio es único en la región porque atendemos llamadas de recolección las 24 horas, los 365 días del año. Por ser almacenadas en Guatemala, las muestras son procesadas y crío preservadas en menos de 24 horas para garantizar la calidad y cantidad de células madre almacenadas.","src":"/brcg-09.png"}];
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) setActive(Number(entry.target.dataset.story)); }), {rootMargin:'-30% 0px -35% 0px'});
+    host.current.querySelectorAll('[data-story]').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+  return <section className="family-story" ref={host}><div className="family-story-stage" aria-hidden="true">{stories.map((story,i) => <img key={story.src} src={story.src} alt="" className={i === active ? 'is-active' : ''} />)}</div><div className="family-story-steps">{stories.map((story,i) => <article key={story.src} data-story={i}><img className="family-story-mobile" src={story.src} alt={i ? 'Especialista de Stem Care en el laboratorio' : 'Una familia sostiene los pies de su bebé'} /><span className="care-story-index">0{i+1} / STEM CARE</span><Typography component="h2">{story.title}</Typography><p>{story.text}</p></article>)}</div></section>;
 }
-
-
-
-function SectionCrio() {
-  return (
-    <Box component="section" sx={{ bgcolor: '#ffffffff', color: '#26313a', py: { xs: 6, md: 10 } }}>
-      <Grid container spacing={{ xs: 2, md: 4 }} alignItems="center">
-        {/* LEFT: image */}
-        <Grid size={{ xs: 12, md: 6 }}>
-          <Box sx={{ pt: { xs: 2, md: 8 }, px: { xs: 2, md: 10 } }}>
-            <Typography
-              component="h2"
-              sx={{
-                color: '#26313a',
-                fontFamily: 'Manrope, sans-serif',
-                fontWeight: 600,
-                fontSize: { xs: 26, sm: 32, md: 40 },
-                lineHeight: { xs: 1.25, md: 1.2 },
-                letterSpacing: 0.2,
-                mb: { xs: 2.5, md: 3 },
-              }}
-            >
-              Somos expertos y líderes de
-              <br />
-              opinión en nuestro campo.
-            </Typography>
-
-            <Typography
-              sx={{
-                color: '#26313a',
-                fontFamily: 'Manrope, sans-serif',
-                fontWeight: 300,
-                fontSize: { xs: 16, sm: 18, md: 20 },
-                lineHeight: 1.7,
-                opacity: 0.9,
-                maxWidth: 620,
-              }}
-            >
-              Nuestro servicio es único en la región porque
-              atendemos llamadas de recolección las 24
-              horas, los 365 días del año. Por ser
-              almacenadas en Guatemala, las muestras son
-              procesadas y crío preservadas en menos de 24
-              horas para garantizar la calidad y cantidad de
-              células madre almacenadas.
-            </Typography>
-          </Box>
-        </Grid>
-
-
-        {/* RIGHT: text */}
-        <Grid size={{ xs: 12, md: 6 }}>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: { xs: 'center', md: 'flex-start' },
-              px: { xs: 2, md: 8 },
-            }}
-          >
-            <img
-              src="/brcg-09.png"
-              alt="Cordón umbilical"
-              style={{
-                width: '100%',         // fluid on small screens
-                height: 'auto',
-                maxWidth: 620,         // cap on larger screens (adjust to taste)
-                borderRadius: 0,
-                display: 'block',
-                objectFit: 'cover',
-              }}
-            />
-          </Box>
-        </Grid>
-
-      </Grid>
-    </Box>
-  );
-}
-
-
 function SectionServicios() {
-  const navigate = useNavigate();
-  
+  const [active, setActive] = React.useState(0);
+  const host = React.useRef(null);
   const cards = [
-    { src: '/programa-stem-care.png', label: 'Programa Stem Care', alt: 'Programa Stem Care', path: '/programa-stem-care' },
-    { src: '/pulpa-diente-de-leche.png', label: 'Pulpa de Diente de Leche', alt: 'Pulpa de Diente de Leche', path: '/programa-stem-care/pulpa' },
-    { src: '/pruebas-geneticas.png', label: 'Pruebas Genéticas Veritas', alt: 'Pruebas Genéticas Veritas', path: '/programa-stem-care/pruebas-geneticas' },
+    { src: '/pruebas-geneticas.png', label: 'Programa Stem Care', path: '/programa-stem-care' },
+    { src: '/pulpa-diente-de-leche.png', label: 'Pulpa de Diente de Leche', path: '/programa-stem-care/pulpa' },
+    { src: '/programa-stem-care.png', label: 'Pruebas Genéticas Veritas', path: '/programa-stem-care/pruebas-geneticas' },
   ];
-
-  return (
-    <Box component="section" sx={{ bgcolor: '#fff', color: '#26313a', py: { xs: 6, md: 10 } }}>
-      <Grid container spacing={{ xs: 2, md: 4 }}>
-        {/* dark band wrapper */}
-        <Grid container size={{ xs: 12 }} sx={{ bgcolor: '#26313a', borderRadius: { md: 1 }, pb: { xs: 3, md: 6 } }}>
-          {/* title */}
-          <Grid size={{ xs: 12 }}>
-            <Box sx={{ display: 'flex', justifyContent: 'center', pt: { xs: 4, md: 8 }, px: { xs: 2, md: 10 } }}>
-              <Typography
-                component="h2"
-                sx={{
-                  color: '#fff',
-                  fontFamily: 'Manrope, sans-serif',
-                  fontWeight: 600,
-                  fontSize: { xs: 26, sm: 32, md: 40 },
-                  lineHeight: { xs: 1.25, md: 1.2 },
-                  letterSpacing: 0.2,
-                }}
-              >
-                Nuestros Servicios
-              </Typography>
-            </Box>
-          </Grid>
-
-          {/* cards */}
-          {cards.map(({ src, label, alt, path }) => (
-            <Grid key={label} size={{ xs: 12, sm: 6, md: 4 }}>
-              <Box
-                component="figure"
-                onClick={() => navigate(path)}
-                sx={{
-                  m: 0,
-                  px: { xs: 2, md: 4 },
-                  // keep image and caption together & centered
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: 2,
-                  cursor: 'pointer',
-                  transition: 'transform 0.2s ease-in-out',
-                  '&:hover': {
-                    transform: 'translateY(-4px)',
-                  },
-                }}
-              >
-                {/* keep a consistent aspect ratio so all cards line up nicely */}
-                <Box
-                  sx={{
-                    width: '100%',
-                    maxWidth: 420,                  // cap width on larger screens
-                    aspectRatio: '11 / 9',         // consistent tile height; adjust to your art
-                    overflow: 'hidden',
-                    borderRadius: 1,
-                    transition: 'box-shadow 0.2s ease-in-out',
-                    '&:hover': {
-                      boxShadow: '0 8px 25px rgba(0,0,0,0.3)',
-                    },
-                  }}
-                >
-                  <img
-                    src={src}
-                    alt={alt}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      display: 'block',
-                    }}
-                  />
-                </Box>
-
-                <Box component="figcaption" sx={{ textAlign: 'center' }}>
-                  <Typography sx={{ 
-                    color: '#fff', 
-                    fontSize: { xs: 16, md: 18 },
-                    transition: 'color 0.2s ease-in-out',
-                    '&:hover': {
-                      color: '#e0e0e0',
-                    },
-                  }}>
-                    {label}
-                  </Typography>
-                </Box>
-              </Box>
-            </Grid>
-          ))}
-
-          {/* CTA */}
-          <Grid size={{ xs: 12 }} sx={{ display: 'flex', justifyContent: 'center', pt: { xs: 2, md: 2 } }}>
-            <Button
-              onClick={() => navigate("/programa-stem-care")}
-              variant="contained"
-              sx={{
-                px: { xs: 4, sm: 6 },
-                py: 1.2,
-                fontSize: { xs: 16, md: 18 },
-                fontWeight: 600,
-                borderRadius: 0,
-                backgroundColor: '#5b5868',
-                '&:hover': { backgroundColor: '#4e4a5b' },
-              }}
-            >
-              Más información
-            </Button>
-          </Grid>
-        </Grid>
-      </Grid>
-    </Box>
-  );
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) setActive(Number(entry.target.dataset.service)); });
+    }, { rootMargin: '-30% 0px -35% 0px' });
+    host.current.querySelectorAll('[data-service]').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+  return <section className="services-experience" ref={host}>
+    <Typography component="h2">Nuestros Servicios</Typography>
+    <div className="services-scroll">
+      <div className="services-stage" aria-hidden="true">
+        <div className="services-orbit" />
+        {cards.map((card, index) => <img key={card.src} className={active === index ? 'is-active' : ''} src={card.src} alt="" />)}
+        <span className="services-count">0{active + 1} / 03</span>
+      </div>
+      <div className="services-steps">{cards.map((card, index) => <article key={card.path} data-service={index} className={active === index ? 'is-active' : ''}>
+        <img className="services-mobile-image" src={card.src} alt="" loading="lazy" />
+        <span className="care-story-index">0{index + 1}</span>
+        <Typography component="h3">{card.label}</Typography>
+        <a className="services-link" href={card.path}>Más información <span aria-hidden="true">↗</span></a>
+      </article>)}</div>
+    </div>
+  </section>;
 }
-
-
-
-
 
 function SectionDirectores() {
+  const navigate = useNavigate();
   const cards = [
-    { src: '/programa-stem-care.png', label: 'Dr. Humberto Calgua Guerra', alt: 'Dr. Humberto Calgua Guerra' },
-    { src: '/pulpa-diente-de-leche.png', label: 'María Alejandra Calgua Guerra', alt: 'María Alejandra Calgua Guerra' },
-    { src: '/pruebas-geneticas.png', label: 'Dr. Byron Rene Calgua Guerra', alt: 'Dr. Byron Rene Calgua Guerra' },
+    { src: '/Erwin.png', label: 'Dr. Humberto Calgua Guerra', alt: 'Dr. Humberto Calgua Guerra' },
+    { src: '/Ale.png', label: 'María Alejandra Calgua Guerra', alt: 'María Alejandra Calgua Guerra' },
+    { src: '/Byron.png', label: 'Dr. Byron Rene Calgua Guerra', alt: 'Dr. Byron Rene Calgua Guerra' },
   ];
 
   return (
@@ -550,14 +192,14 @@ function SectionDirectores() {
                   sx={{
                     width: '100%',
                     maxWidth: 420,                  // cap width on larger screens
-                    aspectRatio: '11 / 9',         // consistent tile height; adjust to your art
+                    aspectRatio: '1 / 1',         // consistent tile height; adjust to your art
                     overflow: 'hidden',
-                    border:1
+                    borderRadius: 3
                   }}
                 >
                   <img
                     src={src}
-                    alt={alt}
+                    alt={alt} loading="lazy" decoding="async"
                     style={{
                       width: '100%',
                       height: '100%',
@@ -580,7 +222,7 @@ function SectionDirectores() {
           <Grid size={{ xs: 12 }} sx={{ display: 'flex', justifyContent: 'center', pt: { xs: 2, md: 2 } }}>
             <Button
               onClick={() => navigate("/programa-stem-care")}
-              variant="contained"
+              variant="contained" className="stem-editorial-cta"
               sx={{
                 px: { xs: 4, sm: 6 },
                 py: 1.2,
@@ -684,48 +326,9 @@ function SectionVideos() {
             </Box>
           </Grid>
 
-          {/* Cards with Videos */}
           {videos.map(({ src, label }) => (
-            <Grid key={label} size={{ xs: 12, sm: 6, md: 3 }}>
-              <Box
-                component="figure"
-                sx={{
-                  m: 0,
-                  px: { xs: 2, md: 1 },
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: 2,
-                }}
-              >
-                {/* Responsive video container */}
-                <Box
-                  sx={{
-                    position: "relative",
-                    width: "100%",
-                    maxWidth: 420,
-                    aspectRatio: "16/9", // keeps the video responsive
-                    overflow: "hidden",
-                  }}
-                >
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src={src}
-                    title={label}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    style={{ borderRadius: 0 }}
-                  ></iframe>
-                </Box>
-
-                <Box component="figcaption" sx={{ textAlign: "center" }}>
-                  <Typography sx={{ color: "#26313a", fontSize: { xs: 16, md: 18 } }}>
-                    {label}
-                  </Typography>
-                </Box>
-              </Box>
+            <Grid key={label} size={{ xs: 12, sm: 6, md: 6 }}>
+              <VideoCard src={src} label={label} />
             </Grid>
           ))}
         </Grid>

@@ -1,3 +1,4 @@
+import GenomeHeading from "./components/GenomeHeading.jsx";
 import * as React from "react";
 import {
   AppBar, Box, Button, Stack, Toolbar, Typography,
@@ -22,21 +23,23 @@ import ScienceRounded from "@mui/icons-material/ScienceRounded";
 
 // pages
 import Home from "./pages/Home.jsx";
-import Acerca from "./pages/Acerca.jsx";
-import Programa from "./pages/Programa.jsx";
-import Planes from "./pages/Planes.jsx";
-import Blog from "./pages/Blog.jsx";
-import BlogPost from "./pages/BlogPost.jsx";
-import Contacto from "./pages/Contacto.jsx";
+const Acerca = React.lazy(() => import("./pages/Acerca.jsx"));
+const Programa = React.lazy(() => import("./pages/Programa.jsx"));
+const Planes = React.lazy(() => import("./pages/Planes.jsx"));
+const Blog = React.lazy(() => import("./pages/Blog.jsx"));
+const BlogPost = React.lazy(() => import("./pages/BlogPost.jsx"));
+const Contacto = React.lazy(() => import("./pages/Contacto.jsx"));
 
-import PorqueFamilias from "./pages/PorqueFamilias.jsx";
+const PorqueFamilias = React.lazy(() => import("./pages/PorqueFamilias.jsx"));
 
-import Transplantes from "./pages/Transplantes.jsx";
-import PulpaDeLeche from "./pages/PulpaDeLeche.jsx";
-import PruebasGen from "./pages/PruebasGen.jsx";
+const Transplantes = React.lazy(() => import("./pages/Transplantes.jsx"));
+const PulpaDeLeche = React.lazy(() => import("./pages/PulpaDeLeche.jsx"));
+const PruebasGen = React.lazy(() => import("./pages/PruebasGen.jsx"));
 
 import Footer from "./pages/Footer.jsx";
-import FloatingCta from "./pages/FloatingCta.jsx";
+import { TourCompanion, ScienceExplorer } from "./components/Biology.jsx";
+import ImageMotion from "./components/ImageMotion.jsx";
+import StemCareChat from "./components/chat/StemCareChat.jsx";
 
 function NavLinkBtn({ to, children }) {
   return (
@@ -112,7 +115,7 @@ function Header() {
       elevation={0}
       color="transparent"
       sx={{
-        bgcolor: "rgba(0, 0, 0, 0.7) !important",
+        bgcolor: "rgba(14, 26, 40, 0.92) !important",
         backdropFilter: "blur(10px)",
         boxShadow: "0 2px 20px rgba(0, 0, 0, 0.1)",
         px: { xs: 2, md: 4 },
@@ -311,7 +314,7 @@ function Header() {
         >
           <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ p: 2 }}>
             <Typography sx={{ fontFamily: "Hargloves", fontSize: 22 }}>Stem Care</Typography>
-            <IconButton onClick={() => setOpen(false)} sx={{ color: "#fff" }}><CloseRoundedIcon/></IconButton>
+            <IconButton aria-label="Cerrar menú" onClick={() => setOpen(false)} sx={{ color: "#fff" }}><CloseRoundedIcon/></IconButton>
           </Stack>
           <Divider sx={{ borderColor: "rgba(255,255,255,0.12)" }} />
           <List>
@@ -383,9 +386,10 @@ export default function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
-        <Header />
+        <a className="skip-content" href="#contenido">Ir al contenido</a><Header />
         <SpacerUnlessHome />
-        <Routes>
+        <ScienceExplorer />
+        <main id="contenido" className="stem-page-content"><React.Suspense fallback={<div className="route-loading" role="status">Stem Care</div>}><Routes>
         <Route path="/" element={<Home />} />
         <Route path="/acerca" element={<Acerca />} />
         <Route path="/programa-stem-care" element={<Programa />} />
@@ -425,8 +429,8 @@ export default function App() {
             alignItems: "center",
             background: "linear-gradient(135deg, #0e1a28 0%, #1a2332 100%)"
           }}>
-            <h1 style={{ fontSize: "3rem", marginBottom: "1rem" }}>404</h1>
-            <h2 style={{ fontSize: "1.5rem", marginBottom: "2rem", color: "#e8edf6" }}>Página no encontrada</h2>
+            <GenomeHeading as="h1" style={{ fontSize: "3rem", marginBottom: "1rem" }}>404</GenomeHeading>
+            <GenomeHeading as="h2" style={{ fontSize: "1.5rem", marginBottom: "2rem", color: "#e8edf6" }}>Página no encontrada</GenomeHeading>
             <p style={{ fontSize: "1.1rem", marginBottom: "2rem", maxWidth: "600px" }}>
               La página que buscas no existe o no está disponible en este momento.
             </p>
@@ -446,10 +450,12 @@ export default function App() {
             </Button>
           </div>
         } />
-      </Routes>
+      </Routes></React.Suspense></main>
 
 
-      <FloatingCta align="center" bottom={38} href="https://www.teravida.org/" label="Pregunta a StemCare AI" />
+      <ImageMotion />
+      <TourCompanion />
+      <StemCareChat />
 
       {/* WhatsApp Button - Fixed Position */}
       <Tooltip title="Contáctanos por WhatsApp" arrow>
@@ -462,8 +468,8 @@ export default function App() {
           sx={{
             position: "fixed",
             right: { xs: 16, sm: 24, md: 32 },
-            top: "91%",
-            transform: "translateY(-50%)",
+            bottom: "calc(20px + env(safe-area-inset-bottom))",
+            transform: "none",
             zIndex: 2,
             width: { xs: 48, sm: 56 },
             height: { xs: 48, sm: 56 },

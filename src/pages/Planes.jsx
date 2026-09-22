@@ -1,16 +1,18 @@
+import GenomeHeading, { GenomeTypography as Typography } from '../components/GenomeHeading.jsx';
 
 import React from "react";
 import "./Planes.css";
+import StemPricing from "../components/StemPricing.jsx";
 
 import {
   Box,
   Container,
   Card,
   CardContent,
-  Typography,
+  
   Divider,
   Link,
-} from "@mui/material";
+} from '@mui/material';
 
 // Icons
 import {
@@ -41,13 +43,13 @@ function SectionHeader({ icon, text }) {
 function ProcesoPrevio() {
   return (
     <section className="info-card">
-      <h3 className="info-card__title">
+      <GenomeHeading as="h3" className="info-card__title">
         Pasos para contratar
-      </h3>
+      </GenomeHeading>
 
-      <h4>
+      <GenomeHeading as="h4">
         Proceso administrativo previo al Nacimiento:
-      </h4>
+      </GenomeHeading>
 
       {/* Keep your original numbering (1,2,3,5,6,7) */}
       <ol className="info-card__list">
@@ -90,17 +92,6 @@ function ProcesoPrevio() {
 
 const PLANS = [
   {
-    id: "stemcare",
-    title: "Programa Stem Care",
-    precios: [
-      { label: "PRECIO CAPITAL", value: "Q 22,000.00" },
-      { label: "PRECIO CAPITAL", value: "Q 23,000.00" },
-      { label: "PRECIO EL SALVADOR", value: "$ 3,100.00" },
-    ],
-    descripcion:
-      "Incluye los costos de administración, inducción, apertura de cuenta, entrega del kit de recolección. Comprende también el transporte de la sangre desde el centro hospitalario hasta nuestro laboratorio, proceso de crío preservación, informe de resultados, legalización de contrato y 18 años de almacenamiento.",
-  },
-  {
     id: "newborn",
     title: "myNewborn",
     precios: [
@@ -140,7 +131,7 @@ function PlanCard({ plan }) {
   return (
     <article className="plan-card">
       {/* Title */}
-      <h3 className="plan-card__title">{plan.title}</h3>
+      <GenomeHeading as="h3" className="plan-card__title">{plan.title}</GenomeHeading>
 
       {/* Precios header + list */}
       <div className="plan-card__section">
@@ -200,26 +191,20 @@ function PaymentCard() {
 
     <article className="plan-card">
 
-      <h3 className="plan-card__title">Formas de Pago</h3>
+      <GenomeHeading as="h3" className="plan-card__title">Formas de Pago</GenomeHeading>
 
       <ul className="plan-card__list with-icons">
         <li>
           <AttachMoney className="icon sm" />
-          <span>Cheques de Bancos locales (Q y $)</span>
+          <span>Transferencias y Depósitos en Banco Industrial, Banrural y BAC.</span>
         </li>
         <li>
           <AccountBalance className="icon sm" />
-          <span>Transferencias a Banco Industrial, BAC, Banrural</span>
+          <span>NeoLink y Compra-Click de BAC.</span>
         </li>
-        <li>
-          <CreditCard className="icon sm" />
-          <span>Tarjetas Visa, Credomatic, MasterCard (7% recargo)</span>
-        </li>
-        <li>
-          <Payments className="icon sm" />
-          <span>Visa Cuotas 3, 6, 10, 12 y 18 (recargo según cuotas)</span>
-        </li>
+
       </ul>
+      <p>El pago se realiza antes del nacimiento del bebé.</p>
     </article>
   );
 }
@@ -229,23 +214,24 @@ export default function Planes() {
     
     <Box sx={{ background:"#fff"}}>
       <main className="planes">
-        {/* <h1 className="planes__title">Planes y Programas</h1> */}
+        {/* <GenomeHeading as="h1" className="planes__title">Planes y Programas</GenomeHeading> */}
         <ProcesoPrevio />     
         <SectionHeader
               icon={<ShoppingCartCheckoutIcon sx={{ color: "#5b5868" }} />}
               text="Planes de Pago"
             />
 
+        <StemPricing />
+
         {/* Row 1 */}
         <section className="cards-row two-cols">
           <PlanCard plan={PLANS[0]} />
-          <PlanCard plan={PLANS[1]} />
         </section>
 
         {/* Row 2 */}
         <section className="cards-row three-cols">
+          <PlanCard plan={PLANS[1]} />
           <PlanCard plan={PLANS[2]} />
-          <PlanCard plan={PLANS[3]} />
           <PaymentCard />
         </section>
       </main>

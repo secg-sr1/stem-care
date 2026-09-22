@@ -4,19 +4,28 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "node scripts/dev.mjs",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:real": "node scripts/dev.mjs --real",
+    "test": "node --test tests/agent-api.test.mjs tests/quarantine.test.mjs",
+    "dev:quarantine": "node scripts/dev.mjs --quarantine"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.1",
     "@mui/material": "^7.3.1",
+    "@supabase/supabase-js": "^2.116.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "openai": "^5.23.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-markdown": "^10.1.0",
     "react-router-dom": "^7.8.1",
+    "remark-gfm": "^4.0.1",
     "resend": "^6.7.0"
   },
   "devDependencies": {

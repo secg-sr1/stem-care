@@ -1,3 +1,4 @@
+import { GenomeTypography as Typography } from '../components/GenomeHeading.jsx';
 // src/pages/Transplantes.jsx
 import React from "react";
 import {
@@ -5,14 +6,14 @@ import {
   Container,
   Card,
   CardContent,
-  Typography,
+  
   Divider,
   Grid,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-} from "@mui/material";
+} from '@mui/material';
 
 // Icons
 import HealingRounded from "@mui/icons-material/HealingRounded";
