@@ -1,9 +1,10 @@
 import { quarantine } from '../../lib/http/quarantine.mjs';
+import { stateless } from '../../lib/http/storage-mode.mjs';
 import { endpoint, readJson, verifyBot, simulation, HttpError } from '../../lib/http/security.mjs';
 import { getSession, simulatedSessions } from '../../lib/http/session.mjs';
 export default endpoint(['GET', 'POST'], async (req, res) => {
   const session = await getSession(req, res);
-  if (quarantine()) { if (req.method === 'GET') return res.json({pending: []}); throw new HttpError(503, 'Approvals are unavailable while storage is quarantined.'); }
+  if (quarantine() || stateless()) { if (req.method === 'GET') return res.json({pending: []}); throw new HttpError(503, 'Approvals are unavailable while storage is quarantined.'); }
   if (req.method === 'GET') {
     const pending = simulation() ? simulatedSessions.get(session.id).pending : await (await import('../../lib/agent/approvals.mjs')).listPending(session.id);
     return res.json({ pending: pending.filter(p => p.proposed_action?.tool === 'createLead') });

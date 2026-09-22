@@ -30,3 +30,4 @@ dist-ssr
 # Local artifact rendering and font conversion dependencies
 tmp/
 
+.env*

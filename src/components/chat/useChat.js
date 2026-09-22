@@ -69,7 +69,8 @@ export default function useChat(language, reducedMotion, level = 'beginner') {
   };
   const send = async input => {
     if (current.current || clearing.current || !ready || !input.trim()) return;
-    if (expires.current && expires.current <= Date.now()) { setMessages([]); setPending([]); }
+    const expired = expires.current && expires.current <= Date.now();
+    if (expired) { setMessages([]); setPending([]); }
     const id = crypto.randomUUID();
     const run = { id, controller: new AbortController(), received: '', immediate: motion.current, timer: 0 };
     current.current = run; setError(''); setPhase('waiting');
@@ -80,7 +81,14 @@ export default function useChat(language, reducedMotion, level = 'beginner') {
     };
     let visibility;
     try {
-      const res = await fetch('/api/agents/concierge', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: input, language, level }), signal: run.controller.signal });
+      const history = []; let remaining = 12000;
+      for (const row of (expired ? [] : [...messages].reverse())) {
+        if (!row.content || (row.role === 'assistant' && row.status !== 'complete')) continue;
+        const content = row.content.slice(0, 6000);
+        if (history.length === 8 || content.length > remaining) break;
+        history.unshift({ role: row.role, content }); remaining -= content.length;
+      }
+      const res = await fetch('/api/agents/concierge', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: input, language, level, history }), signal: run.controller.signal });
       if (current.current !== run) return;
       if (!res.ok || !res.body) { const failure = new Error(); failure.status = res.status; throw failure; }
       expires.current = Number(res.headers.get('X-Session-Expires'));

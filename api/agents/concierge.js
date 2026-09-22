@@ -1,9 +1,20 @@
 import { endpoint, readJson, textField, languageOf, simulation, HttpError } from '../../lib/http/security.mjs';
 import { getSession, simulatedSessions } from '../../lib/http/session.mjs';
+import { stateless } from '../../lib/http/storage-mode.mjs';
 export default endpoint(['POST'], async (req, res) => {
   const body = await readJson(req);
   const message = textField(body.message, 'message', 4000, true);
   const language = languageOf(body.language);
+  // Browser history is untrusted conversational data, never system/tool messages.
+  let clientHistory = [];
+  if (stateless() && body.history !== undefined) {
+    if (!Array.isArray(body.history) || body.history.length > 8) throw new HttpError(400, 'Invalid history.');
+    clientHistory = body.history.map(row => {
+      if (!row || !['user', 'assistant'].includes(row.role)) throw new HttpError(400, 'Invalid history role.');
+      return { role: row.role, content: textField(row.content, 'history', 6000, true) };
+    });
+    if (clientHistory.reduce((n, row) => n + row.content.length, 0) > 12000) throw new HttpError(400, 'History too long.');
+  }
   const level = body.level ?? 'beginner';
   if (!['beginner', 'medium', 'academic'].includes(level)) throw new HttpError(400, 'Invalid explanation level.');
   const session = await getSession(req, res, true, language);
@@ -37,7 +48,7 @@ export default endpoint(['POST'], async (req, res) => {
       if (simulatedSessions.has(session.id) && !controller.signal.aborted) state.messages.push({ role: 'assistant', content: answer });
     } else {
       const { runConciergeStream } = await import('../../lib/agent/run.mjs');
-      await runConciergeStream({ userMessage: message, language, level, sessionId: session.id, signal: controller.signal, onToken: t => res.write(t) });
+      await runConciergeStream({ userMessage: message, language, level, sessionId: session.id, clientHistory, signal: controller.signal, onToken: t => res.write(t) });
     }
     if (controller.signal.aborted && !res.writableEnded) res.destroy(); else res.end();
   } finally { clearTimeout(timeout); res.off('close', abort); }

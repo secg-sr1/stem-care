@@ -56,14 +56,14 @@ function ProcesoPrevio() {
         <li value={1}>
           Debes de llenar el <strong>Formulario de Inscripción al Programa Stem Care</strong> y el
           <strong> Formulario de Forma de Pagos</strong> y entregar a Stem Care al correo
-          <strong> ventas3@stem-care.com</strong>. Adjuntar una copia de DPI o Pasaporte tanto de la madre como del padre
+          <strong> alecalgua@stem-care.com</strong>. Adjuntar una copia de DPI o Pasaporte tanto de la madre como del padre
           (pueden enviar la imagen escaneada por correo o al Whatsapp <strong>5702-9736</strong>).
         </li>
 
         <li value={2}>
           Stem Care al recibir los formularios, primero, hace el ingreso a <strong>Recolección en Espera</strong>, segundo,
           prepara el contrato. <strong>Hacemos entrega del Kit de Recolección junto con el contrato.</strong> Si se encuentran en
-          el interior del país, hacemos la entrega a la dirección que nos indiquen por medio de Cargo Expreso.
+          el interior del país, hacemos la entrega a la dirección que nos indiquen por medio de Guatex.
         </li>
 
         <li value={3}>
@@ -100,8 +100,8 @@ const PLANS = [
       { label: "PRECIO EL SALVADOR", value: "$ 1,300.00" },
     ],
     descripcion:
-      "Prueba de análisis de 400 genes relacionados a 390 enfermedades metabólicas y genéticas de aparición en los primeros años de vida. Incluye kit de recolección, muestra de saliva, informe y asesoría con genetista.",
-    // incluye: ["Kit de recolección", "Muestra de saliva", "Informe de Resultados", "Asesoría con Genetista"],
+      "Prueba de análisis de 400 genes relacionados a 390 enfermedades metabólicas y genéticas de aparición en los primeros años de vida.",
+    incluye: ["Kit de recolección", "Toma de muestra de saliva", "Informe de Resultados", "Asesoría con Genetista"],
   },
   {
     id: "prenatal",
