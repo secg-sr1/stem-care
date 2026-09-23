@@ -112,7 +112,8 @@ const PLANS = [
       { label: "PRECIO EL SALVADOR", value: "$ 1,125.00" },
     ],
     descripcion:
-      "Prueba no invasiva de cribado prenatal que estudia las anomalías cromosómicas más frecuentes (trisomías 21, 18 y 13).",
+      "Es una prueba no invasiva avanzada de cribado prenatal que estudia las anomalías cromosómicas más frecuentes (trisomías 21, 18 y 13).",
+    incluye: ["Kit de Recolección", "Toma de muestra de sangre de la mamá", "Informe de Resultados", "Asesoría con Genetista"],
   },
   {
     id: "healthscore",

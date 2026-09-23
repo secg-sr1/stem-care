@@ -93,6 +93,9 @@ function DownloadButton({ href, label = "Descargar PDF" }) {
  * PruebasGen.jsx
  * Props:
  *  - pdfs: {
+ *      myNewborn?: string,
+ *      myNewbornFaqs?: string,
+ *      myNewbornDiseases?: string,
  *      myGenomeBrochure?: string,
  *      myCancerRisk?: string,
  *      myHealthScore?: string,
@@ -105,6 +108,9 @@ function DownloadButton({ href, label = "Descargar PDF" }) {
  */
 export default function PruebasGen({
   pdfs = {
+    myNewborn: "/docs/myNewborn-folleto.pdf",
+    myNewbornFaqs: "/docs/myNewborn-preguntas-frecuentes.pdf",
+    myNewbornDiseases: "/docs/myNewborn-enfermedades.pdf",
     myGenomeBrochure: "/docs/Medical Brochure myGenome ES.pdf",
     myCancerRisk: "/docs/MedicalBrochure_myCancerRisk_SP_8 11 22_online.pdf",
     myHealthScore: "/docs/MedicalBrochure_myHealthScore_SP_10 11 22_online.pdf",
@@ -137,6 +143,30 @@ export default function PruebasGen({
               <Chip label="Medicina Personalizada" size="small" />
               <Chip label="Consejo Genético" size="small" />
               <Chip label="Biobanco" size="small" />
+            </Stack>
+          </CardContent>
+        </Card>
+
+        {/* myNewborn */}
+        <Card id="myNewborn" sx={{ ...CARD_SX, mb: 3 }}>
+          <CardContent sx={{ p: { xs: 3, md: 4 } }}>
+            <SectionHeader icon={<BiotechRounded sx={{ color: "#5b5868" }} />} text="myNewborn" />
+            <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>
+              <strong>Descripción:</strong> Prueba de análisis de <strong>400 genes</strong> relacionados a{" "}
+              <strong>390 enfermedades metabólicas y genéticas</strong> de aparición en los primeros años de vida.
+            </Typography>
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={1} flexWrap="wrap" useFlexGap sx={{ mb: 2 }}>
+              <Chip label="PRECIO CAPITAL: Q 8,000.00" />
+              <Chip label="PRECIO INTERIOR: Q 9,000.00" />
+              <Chip label="PRECIO EL SALVADOR: $ 1,300.00" />
+            </Stack>
+            <Typography variant="body2" sx={{ opacity: 0.95, mb: 3 }}>
+              <strong>Incluye:</strong> Kit de recolección, toma de muestra de saliva, Informe de Resultados y Asesoría con Genetista.
+            </Typography>
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} flexWrap="wrap" useFlexGap alignItems={{ xs: "stretch", sm: "flex-start" }}>
+              <DownloadButton href={pdfs.myNewborn} label="Descargar folleto myNewborn" />
+              <DownloadButton href={pdfs.myNewbornFaqs} label="Descargar preguntas frecuentes" />
+              <DownloadButton href={pdfs.myNewbornDiseases} label="Descargar listado de enfermedades" />
             </Stack>
           </CardContent>
         </Card>
@@ -246,6 +276,17 @@ export default function PruebasGen({
         <Card id="myPrenatal" sx={{ ...CARD_SX, mb: 3 }}>
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
             <SectionHeader icon={<PregnantWomanRounded sx={{ color: "#5b5868" }} />} text="myPrenatal (NIPT GenomeScreen)" />
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={1} flexWrap="wrap" useFlexGap sx={{ mb: 2 }}>
+              <Chip label="PRECIO CAPITAL: Q 7,000.00" />
+              <Chip label="PRECIO INTERIOR: Q 8,000.00" />
+              <Chip label="PRECIO EL SALVADOR: $ 1,125.00" />
+            </Stack>
+            <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>
+              <strong>Descripción:</strong> Es una prueba no invasiva avanzada de cribado prenatal que estudia las anomalías cromosómicas más frecuentes (trisomías 21, 18 y 13).
+            </Typography>
+            <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>
+              <strong>Incluye:</strong> Kit de Recolección, toma de muestra de sangre de la mamá, Informe de Resultados y Asesoría con Genetista.
+            </Typography>
             <Typography variant="body2" sx={{ opacity: 0.95, mb: 2 }}>
               <strong>NIPT</strong> de alta precisión: <strong>trisomías 13/18/21</strong>, aneuploidías de{" "}
               <strong>X/Y</strong> y opción <strong>GenomeScreen</strong> con CNVs &gt; 7 Mb en todos los cromosomas.
