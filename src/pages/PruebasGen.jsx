@@ -163,7 +163,16 @@ export default function PruebasGen({
             <Typography variant="body2" sx={{ opacity: 0.95, mb: 3 }}>
               <strong>Incluye:</strong> Kit de recolección, toma de muestra de saliva, Informe de Resultados y Asesoría con Genetista.
             </Typography>
-            <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} flexWrap="wrap" useFlexGap alignItems={{ xs: "stretch", sm: "flex-start" }}>
+            <SectionHeader icon={<InsightsRounded sx={{ color: "#5b5868" }} />} text="¿Para qué sirve?" />
+            <Bullets items={[
+              "Identificar alteraciones genéticas asociadas a enfermedades que pueden aparecer durante la infancia.",
+              "Orientar el seguimiento médico y las medidas preventivas según los resultados.",
+              "Ayudar a la familia a comprender los resultados con asesoría de un genetista.",
+            ]} />
+            <Typography variant="body2" sx={{ opacity: 0.95, mt: 1, mb: 3 }}>
+              <em>Relación con células madre:</em> el cribado genético y la conservación de células madre ofrecen información y recursos distintos para planificar el cuidado familiar. Los resultados no implican que una enfermedad pueda tratarse con células madre; las opciones deben evaluarse con un especialista.
+            </Typography>
+            <Stack spacing={1.5} alignItems={{ xs: "stretch", md: "flex-start" }}>
               <DownloadButton href={pdfs.myNewborn} label="Descargar folleto myNewborn" />
               <DownloadButton href={pdfs.myNewbornFaqs} label="Descargar preguntas frecuentes" />
               <DownloadButton href={pdfs.myNewbornDiseases} label="Descargar listado de enfermedades" />
